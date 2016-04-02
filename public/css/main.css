@@ -12,17 +12,46 @@ body {
 
 a { color: #00B7FF; }
 
+/*landing state*/
 .cinemine {
   font-size: 275px;
-  position: absolute;
-  top: 280px;
+  position: relative;
+  top: 380px;
+  color: white;
+  text-decoration: none;
+  opacity: 0.7;
 }
 
+#cinemine {
+  text-align: center;
+}
+
+.video-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+a:hover {
+  color: white !important;
+  opacity: 1;
+}
 /*signin state*/
 .signin-container {
   display: flex;
   justify-content: space-around;
-  margin-top: 15px;
   border: 2px solid;
   padding: 30px;
 }

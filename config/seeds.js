@@ -4,13 +4,12 @@ var User = require('../models/user');
 
 var users = [
   { // 0
-    handle: "DunkLord",
-    name:   "Bob Neverdunk"
+    firstName: "Jerry",
+    lastName:   "Ngov",
+    email: "j@email.com",
+    password: "abc123",
+    passwordConfirmation: "abc123"
   },
-  { // 1
-    handle: "MoneyMarge",
-    name:   "Margaret Kalanchoe"
-  }
 ];
 
 User.remove({}, function(err) {

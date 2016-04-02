@@ -11,3 +11,10 @@ body {
 }
 
 a { color: #00B7FF; }
+
+.cinemine {
+  font-size: 275px;
+  margin-bottom: 0;
+  position: absolute;
+  top: 280px;
+}

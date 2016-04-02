@@ -6,9 +6,13 @@
   <title></title>
   <link rel="stylesheet" href="/css/main.css">
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
 </head>
 <body>
-  <h1>CineMine</h1>
+  <h1 class="cinemine"><a ui-sref="signin">CineMine</a></h1>
+  <main ui-view></main>
   <script src="/js/app.module.js"></script>
+  <script src="/js/app.routes.js"></script>
 </body>
 </html>

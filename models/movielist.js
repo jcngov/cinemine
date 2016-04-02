@@ -14,19 +14,21 @@ var movieSchema = new mongoose.Schema({
 
 var favoritesSchema = new mongoose.Schema({
   movies: [movieSchema],
-  creator:{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
-          }
 });
 
 var movieListSchema = new mongoose.Schema({
   movies:          [movieSchema],
   favorite_movies: [favoritesSchema]
+  creator: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+           }
 });
 
 var Movielist = mongoose.model('Movielist', movieListSchema);
 
 module.exports = Movielist;
+
+// where to put movie bank?
 
 

@@ -17,7 +17,9 @@
     $stateProvider
       .state('signin', {
         url: '/signin',
-        templateUrl: '/js/app/layouts/signin.html'
+        templateUrl: '/js/app/layouts/signin.html',
+        controller: 'SignInController',
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/');

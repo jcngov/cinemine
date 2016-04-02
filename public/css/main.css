@@ -67,4 +67,5 @@ a:hover {
 .form-containers {
   border: 2px solid;
   padding: 30px;
+  width: 550px;
 }

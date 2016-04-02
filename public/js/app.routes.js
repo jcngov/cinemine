@@ -11,8 +11,8 @@
 
     $stateProvider
       .state('landing', {
-        url: '/',
-        templateUrl: '../index.html'
+        url: '/landing',
+        templateUrl: '/js/app/layouts/landing.html'
       })
     $stateProvider
       .state('signin', {

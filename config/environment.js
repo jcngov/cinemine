@@ -2,7 +2,8 @@ var _ = require('lodash');
 
 var localEnvVars = {
   TITLE:      'cinemine',
-  SAFE_TITLE: 'cinemine'
+  SAFE_TITLE: 'cinemine',
+  TOKEN_SECRET: 'verysecret'
 };
 
 // Merge all environmental variables into one object.

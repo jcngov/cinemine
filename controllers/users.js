@@ -4,7 +4,8 @@ var User = require("../models/user");
 module.exports = {
   index:  index,
   show:   show,
-  create: create
+  create: create,
+  me: me
 }
 
 function index(req, res, next) {
@@ -58,6 +59,17 @@ function create(req, res, next) {
       } else {
         err.status = 422;
       }
+      next(err);
+    });
+};
+
+function me(req, res, next) {
+  User
+    .findOne({email: req.decoded.email}).exec()
+    .then(function(user) {
+      res.json(user);
+    })
+    .catch(function(err) {
       next(err);
     });
 };

@@ -9,6 +9,15 @@ var userSchema = new mongoose.Schema({
   passwordConfirmation: {type: String, required: true}
 });
 
+userSchema.plugin(require('mongoose-bcrypt'));
+
+userSchema.options.toJSON = {
+  transform: function(document, returnedObject, options) {
+    delete returnedObject.password;
+    return returnedObject;
+  }
+};
+
 var User = mongoose.model('User', userSchema);
 
 module.exports = User;

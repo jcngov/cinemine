@@ -5,15 +5,15 @@
     .module('app')
     .controller('SignInController', SignInController);
 
-  SignInController.$inject = ['$log', '$http', '$window', 'authService', 'userService'];
+  SignInController.$inject = ['$log', '$http', '$window', 'authService', 'userService', '$state'];
 
-  function SignInController($log, $http, $window, authService, userService) {
+  function SignInController($log, $http, $window, authService, userService, $state) {
 
     $log.info('SignInController loaded');
 
     var vm = this;
     vm.signUp = signUp;
-    vm.users = [];
+    vm.submitLogIn = submitLogIn;
     vm.user = {
       firstName: "",
       lastName: "",
@@ -27,7 +27,6 @@
       password: ""
     }
 
-    vm.submitLogIn = submitLogIn;
 
     function signUp(){
       userService.createUser(vm.user)
@@ -35,7 +34,16 @@
 
 
     function submitLogIn(){
-      authService.logIn(vm.logIn);
+      authService
+        .logIn(vm.logIn)
+        .then(
+          function(decodedToken){
+            $state.go('home');
+          },
+          function(err) {
+            $log.info('Error: ', err);
+          }
+        );
     }
 
 

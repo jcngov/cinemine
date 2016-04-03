@@ -5,9 +5,9 @@
     .module('app')
     .factory('userService', userService);
 
-  userService.$inject = ['$log', '$http', 'authService'];
+  userService.$inject = ['$log', '$http', 'authService', '$state'];
 
-  function userService($log, $http, authService) {
+  function userService($log, $http, authService, $state) {
     $log.info('userService loaded')
 
     var service = {
@@ -29,12 +29,16 @@
         function(res) {
           $log.info("Success ", res)
           authService.logIn(data);
+        })
+      .then(
+        function(decodedToken){
+          $state.go('home');
         },
-        function(err){
-          $log.info("Error: ", err)
+        function(err) {
+          $log.info('Error: ', err);
         }
       );
-    };
+    }
   }
 
 })();

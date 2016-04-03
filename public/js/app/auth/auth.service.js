@@ -5,9 +5,9 @@
     .module('app')
     .factory('authService', authService);
 
-  authService.$inject = ['$log', '$http', '$window'];
+  authService.$inject = ['$log', '$http', '$window', 'tokenService'];
 
-  function authService($log, $http, $window){
+  function authService($log, $http, $window, tokenService){
     $log.info('authService loaded')
 
     var service = {
@@ -16,12 +16,12 @@
 
     return service;
 
-    function saveToken(value, data) {
-      $window.localStorage.setItem(value, data);
-    }
+    // function saveToken(value, data) {
+    //   $window.localStorage.setItem(value, data);
+    // }
 
     function logIn(data){
-      $http({
+      var promise = $http({
         method: 'POST',
         url: 'http://localhost:3000/api/token',
         data: data,
@@ -31,13 +31,15 @@
       })
       .then(
         function(res) {
-          $log.info('Success: ', res.data);
+          // $log.info('Success: ', res.data);
           var token = res.data;
-          $log.info(token);
-          saveToken('token', token);
-        },
-        function(err) {$log.info('Error', err);}
+          // $log.info(token);
+          tokenService.store(token);
+          $log.info('Success: ', tokenService.decode());
+          return tokenService.decode();
+        }
       );
+      return promise;
     }
   }
 

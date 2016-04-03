@@ -15,7 +15,8 @@
       <div class="row">
         <div class="twelve columns">
           <label for="email">Email</label>
-          <input ng-model="vm.user.email" class="u-full-width" type="text" placeholder="jngov@yahoo.com" id="email">
+          <input ng-model="vm.user.email" ng-class="{'red-border': vm.conflict}" class="u-full-width" type="email" placeholder="jngov@yahoo.com" id="email">
+          <small ng-show="vm.conflict">Email already exists</small>
         </div>
       </div>
       <div class="row">
@@ -51,5 +52,7 @@
       </div>
       <input class="button" type="submit" value="Submit">
     </form>
+    <small ng-show="vm.unprocessable">Missing Required Field</small>
+    <small ng-show="vm.notFound">User Not Found or Password is Incorrect</small>
   </div>
 </div>

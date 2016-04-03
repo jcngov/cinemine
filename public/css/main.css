@@ -70,6 +70,10 @@ a:hover {
   width: 550px;
 }
 
+#email.red-border {
+  border: 2px solid red;
+}
+
 /*navbar*/
 
 .navbar {

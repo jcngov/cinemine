@@ -27,9 +27,27 @@
       password: ""
     }
 
+    vm.conflict = false;
+    vm.unprocessable = false;
+    vm.notFound = false;
+
 
     function signUp(){
       userService.createUser(vm.user)
+      .then(
+      function(res) {
+        $log.info("Success ", res)
+        authService.logIn(data);
+      })
+      .then(
+        function(decodedToken){
+          $state.go('home');
+        },
+        function(err) {
+          if (err.status === 409) vm.conflict = true;
+          $log.info('Error: ', err);
+        }
+      );
     }
 
 
@@ -41,9 +59,13 @@
             $state.go('home');
           },
           function(err) {
+            if (err.status === 422) vm.unprocessable = true;
+            if (err.status === 403) vm.notFound = true;
             $log.info('Error: ', err);
           }
         );
+      vm.unprocessable = false;
+      vm.notFound = false;
     }
 
 

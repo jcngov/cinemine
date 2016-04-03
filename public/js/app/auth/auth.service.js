@@ -11,7 +11,8 @@
     $log.info('authService loaded')
 
     var service = {
-      logIn: logIn
+      logIn: logIn,
+      logOut: logOut
     }
 
     return service;
@@ -40,6 +41,11 @@
         }
       );
       return promise;
+    }
+
+    function logOut(){
+      tokenService.destroy();
+      $log.info('logged out');
     }
   }
 

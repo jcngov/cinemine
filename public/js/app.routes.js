@@ -24,7 +24,9 @@
     $stateProvider
       .state('home', {
         url: '/home',
-        templateUrl: '/js/app/layouts/home.html'
+        templateUrl: '/js/app/layouts/home.html',
+        controller: 'NavController',
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/');

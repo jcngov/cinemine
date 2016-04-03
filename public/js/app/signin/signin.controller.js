@@ -29,6 +29,7 @@
 
     vm.conflict = false;
     vm.unprocessable = false;
+    vm.unprocessableSignUp = false;
     vm.notFound = false;
 
 
@@ -37,7 +38,7 @@
       .then(
       function(res) {
         $log.info("Success ", res)
-        authService.logIn(data);
+        return authService.logIn(vm.user)
       })
       .then(
         function(decodedToken){
@@ -45,9 +46,12 @@
         },
         function(err) {
           if (err.status === 409) vm.conflict = true;
+          if (err.status === 422) vm.unprocessableSignUp = true;
           $log.info('Error: ', err);
         }
       );
+      vm.conflict = false;
+      vm.unprocessableSignUp = false;
     }
 
 

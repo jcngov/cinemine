@@ -11,7 +11,7 @@
   function tokenService($log, $window) {
     $log.debug('tokenService loaded!');
 
-    const TOKEN_KEY = 'local-auth-token';
+    const TOKEN_KEY = 'token';
     var service = {
       store:    store,
       retrieve: retrieve,

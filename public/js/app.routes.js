@@ -20,6 +20,11 @@
         templateUrl: '/js/app/layouts/signin.html',
         controller: 'SignInController',
         controllerAs: 'vm'
+      })
+    $stateProvider
+      .state('home', {
+        url: '/home',
+        templateUrl: '/js/app/layouts/home.html'
       });
 
     $urlRouterProvider.otherwise('/');

@@ -69,3 +69,15 @@ a:hover {
   padding: 30px;
   width: 550px;
 }
+
+/*navbar*/
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid;
+}
+
+.navs{
+  display:table-cell;
+}

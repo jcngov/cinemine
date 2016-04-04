@@ -5,9 +5,9 @@
     .module('app')
     .controller('GenreController', GenreController);
 
-  GenreController.$inject = ['$log'];
+  GenreController.$inject = ['$log', '$http'];
 
-  function GenreController($log){
+  function GenreController($log, $http){
     $log.info('GenreController loaded')
     var vm = this;
     vm.genres = [
@@ -98,12 +98,35 @@
       return vm.genreList;
     })
 
-    $log.info(vm.genreList);
+    vm.action = "ACTION STUFF";
 
-    // var genreIds = [];
-    // genres.forEach(function(genre) {
-    //   if (genre.id) genreIds.push(genre.id)
-    // })
+    // vm.movieInfo = {
+    //   title = vm.movieInfo.title,
+    //   overview = vm.movieInfo.overview,
+    //   backdrop_path = vm.movieInfo.backdrop_path,
+    //   release_date = vm.movieInfo.release_date,
+    //   poster_path = vm.movieInfo.poster_path,
+    //   popularity = vm.movieInfo.popularity
+    // }
+
+    $http({
+      method: 'GET',
+      url: '/api/movies',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(function(res){
+      if (res.data) {
+        vm.movieInfo = res.data;
+      }
+    },
+    function(err) {
+      $log.info('error: so sad', err);
+    });
+
+    // $log.info(vm.genreList);
+
   }
 
 

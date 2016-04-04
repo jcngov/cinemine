@@ -38,6 +38,11 @@
         url: '/browse/genre',
         templateUrl: 'js/app/layouts/genre.html'
       });
+    // $stateProvider
+    //   .state('action', {
+    //     url: '/genre/action',
+    //     templateUrl: 'js/app/genre/action.genre.html'
+    //   });
 
     $urlRouterProvider.otherwise('/');
   }

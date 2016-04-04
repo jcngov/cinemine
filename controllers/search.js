@@ -102,32 +102,31 @@ genres.forEach(function(genre) {
 var results = [];
 
 function searchGenreAction(req, res, next) {
+
   request({
     method: 'GET',
     uri: uri + 'discover/movie?api_key=' + process.env.API_KEY + '&with_genres=' + genreIds[0] + '&page=1'
-  }, function (err, res, body) {
+  }, function (err, response, body) {
     if (!err) {
       var movieGenre = parseMovie(body);
-      // movie.forEach(function(movie) {
-      //   console.log(movie.results.title);
-      // })
-  movieGenre.results.forEach(function(movie) {
-  // console.log(movieGenre.results)
-    var movieInfo = {};
-    movieInfo.title = movie.title
-    movieInfo.overview = movie.overview
-    movieInfo.backdrop_path = movie.backdrop_path
-    movieInfo.release_date = movie.release_date
-    movieInfo.poster_path = movie.poster_path
-    movieInfo.popularity = movie.popularity
+      movieGenre.results.forEach(function(movie) {
+        var movieInfo = {};
+        movieInfo.title = movie.title
+        movieInfo.overview = movie.overview
+        movieInfo.backdrop_path = movie.backdrop_path
+        movieInfo.release_date = movie.release_date
+        movieInfo.poster_path = movie.poster_path
+        movieInfo.popularity = movie.popularity
 
-    results.push(movieInfo);
-  })
-  console.log(results);
+        results.push(movieInfo);
+
+      });
+      res.send(results);
+    } else {
+      next(err);
     }
 
   });
 }
 
-searchGenreAction();
 

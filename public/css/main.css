@@ -106,14 +106,31 @@ a:hover {
   font-size: 200px;
   border-bottom: 2px solid;
   padding-top: 60px;
-  /*padding-bottom: 60px;*/
   padding-right: 40px;
   padding-left: 40px;
 }
 
-.browse-container {
-/*  display: flex;
-  justify-content: space-around;*/
+.rotate {
+  transform: rotate(-90deg);
 }
 
+.genre {
+  font-size: 200px;
+  position: relative;
+  left: -200px;
+  top: 200px;
+  /*text-decoration: underline;*/
+  margin-top: 15px;
+  border-bottom: 2px solid
+}
+
+.genre-container {
+  display: flex;
+}
+
+/*.genre-search-box {
+  border: 2px solid;
+  height: 400px;
+  width: 400px;
+}*/
 

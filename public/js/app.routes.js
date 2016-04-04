@@ -11,7 +11,7 @@
 
     $stateProvider
       .state('landing', {
-        url: '/landing',
+        url: '/',
         templateUrl: '/js/app/layouts/landing.html'
       })
     $stateProvider
@@ -25,6 +25,20 @@
       .state('home', {
         url: '/home',
         templateUrl: '/js/app/layouts/home.html',
+        controller: 'NavController',
+        controllerAs: 'vm'
+      })
+    $stateProvider
+      .state('browse', {
+        url: '/browse',
+        templateUrl: '/js/app/layouts/browse.html',
+        controller: 'NavController',
+        controllerAs: 'vm'
+      })
+    $stateProvider
+      .state('genre', {
+        url: '/browse/genre',
+        templateUrl: 'js/app/layouts/genre.html',
         controller: 'NavController',
         controllerAs: 'vm'
       });

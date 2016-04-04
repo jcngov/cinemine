@@ -94,3 +94,26 @@ a:hover {
 .navs{
   display:table-cell;
 }
+
+#navs {
+  color: black !important;
+  text-decoration: none;
+}
+
+/*browse*/
+
+.browse-text {
+  font-size: 200px;
+  border-bottom: 2px solid;
+  padding-top: 60px;
+  /*padding-bottom: 60px;*/
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.browse-container {
+/*  display: flex;
+  justify-content: space-around;*/
+}
+
+

@@ -5,9 +5,9 @@
     .module('app')
     .controller('SignInController', SignInController);
 
-  SignInController.$inject = ['$log', '$http', '$window', 'authService', 'userService', '$state'];
+  SignInController.$inject = ['$log', '$http', '$window', 'authService', 'userService', '$state', 'tokenService'];
 
-  function SignInController($log, $http, $window, authService, userService, $state) {
+  function SignInController($log, $http, $window, authService, userService, $state, tokenService) {
 
     $log.info('SignInController loaded');
 
@@ -15,16 +15,16 @@
     vm.signUp = signUp;
     vm.submitLogIn = submitLogIn;
     vm.user = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      passwordConfirmation: ""
+      firstName: "jerry",
+      lastName: "ngov",
+      email: "jcn@email.com",
+      password: "abc",
+      passwordConfirmation: "abc"
     };
 
     vm.logIn = {
-      email: "",
-      password: ""
+      email: "jcn@email.com",
+      password: "abc"
     }
 
     vm.conflict = false;
@@ -61,6 +61,8 @@
         .then(
           function(decodedToken){
             $state.go('home');
+            // vm.tokenData = tokenService.decode(decodedToken);
+            // return vm.tokenData
           },
           function(err) {
             if (err.status === 422) vm.unprocessable = true;

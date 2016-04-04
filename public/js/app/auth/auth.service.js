@@ -13,6 +13,7 @@
     var service = {
       logIn: logIn,
       logOut: logOut
+      // currentUser: currentUser
     }
 
     return service;
@@ -36,8 +37,8 @@
           var token = res.data;
           // $log.info(token);
           tokenService.store(token);
-          $log.info('Success: ', tokenService.decode());
-          return tokenService.decode();
+          $log.info('Success: ', tokenService.decode(token));
+          return tokenService.decode(token);
         }
       );
       return promise;
@@ -47,6 +48,11 @@
       tokenService.destroy();
       $log.info('logged out');
     }
+
+    // function currentUser(){
+    //   var tokenData = tokenService.decode();
+    //   return tokenData;
+    // }
   }
 
 })();

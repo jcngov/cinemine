@@ -51,7 +51,11 @@ function create(req, res, next) {
       res.json({
         success: true,
         message: "User Created!",
-        data: req.body
+        data: {
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName
+        }
       });
     }).catch(function(err){
       if (err.message.match(/E11000/)) {

@@ -31,16 +31,12 @@
     $stateProvider
       .state('browse', {
         url: '/browse',
-        templateUrl: '/js/app/layouts/browse.html',
-        controller: 'NavController',
-        controllerAs: 'vm'
+        templateUrl: '/js/app/layouts/browse.html'
       })
     $stateProvider
       .state('genre', {
         url: '/browse/genre',
-        templateUrl: 'js/app/layouts/genre.html',
-        controller: 'NavController',
-        controllerAs: 'vm'
+        templateUrl: 'js/app/layouts/genre.html'
       });
 
     $urlRouterProvider.otherwise('/');

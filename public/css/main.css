@@ -110,27 +110,45 @@ a:hover {
   padding-left: 40px;
 }
 
+/*genre search*/
+
 .rotate {
   transform: rotate(-90deg);
 }
 
 .genre {
   font-size: 200px;
-  position: relative;
-  left: -200px;
-  top: 200px;
-  /*text-decoration: underline;*/
+  position: absolute;
+  left: -230px;
+  top: 350px;
   margin-top: 15px;
-  border-bottom: 2px solid
+  /*border-bottom: 2px solid*/
+  height: 200px;
+  border: 2px solid;
 }
 
 .genre-container {
   display: flex;
 }
 
-/*.genre-search-box {
-  border: 2px solid;
-  height: 400px;
-  width: 400px;
-}*/
 
+.genre-list-container {
+  border: 2px solid;
+  margin: 0 auto;
+  margin-left: 200px;
+}
+
+.genres {
+  list-style-type: none;
+  font-size: 100px;
+}
+
+.box {
+  width: 370px;
+  background-color: black;
+}
+
+#genres {
+  color: black !important;
+  text-decoration: none;
+}

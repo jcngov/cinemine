@@ -19,7 +19,7 @@
     function createUser(data) {
       var promise = $http({
         method: 'POST',
-        url: 'http://localhost:3000/api/users',
+        url: '/api/users',
         data: data,
         headers: {
           'Content-Type': 'application/json'

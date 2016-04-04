@@ -98,8 +98,6 @@
       return vm.genreList;
     })
 
-    vm.action = "ACTION STUFF";
-
     // vm.movieInfo = {
     //   title = vm.movieInfo.title,
     //   overview = vm.movieInfo.overview,
@@ -111,7 +109,7 @@
 
     $http({
       method: 'GET',
-      url: '/api/movies',
+      url: '/api/actionmovies',
       headers: {
         'Content-Type': 'application/json'
       }
@@ -124,8 +122,6 @@
     function(err) {
       $log.info('error: so sad', err);
     });
-
-    // $log.info(vm.genreList);
 
   }
 

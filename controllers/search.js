@@ -111,12 +111,14 @@ function searchGenreAction(req, res, next) {
       var movieGenre = parseMovie(body);
       movieGenre.results.forEach(function(movie) {
         var movieInfo = {};
-        movieInfo.title = movie.title
-        movieInfo.overview = movie.overview
+        movieInfo.title         = movie.title
+        movieInfo.overview      = movie.overview
         movieInfo.backdrop_path = movie.backdrop_path
-        movieInfo.release_date = movie.release_date
-        movieInfo.poster_path = movie.poster_path
-        movieInfo.popularity = movie.popularity
+        movieInfo.release_date  = movie.release_date
+        movieInfo.poster_path   = movie.poster_path
+        movieInfo.popularity    = movie.popularity
+        movieInfo.id            = movie.id
+
 
         results.push(movieInfo);
 

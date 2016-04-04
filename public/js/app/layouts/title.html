@@ -8,8 +8,11 @@
   <li class="navs">Welcome</li>
 </ul>
 
-<div class="browse-container">
-  <h1 class="browse-text"><a id="navs" ui-sref="genre">GENRE.</a></h1>
-  <h1 class="browse-text"><a id="navs" ui-sref="title">TITLE.</a></h1>
-  <h1 class="browse-text"><a id="navs" ui-sref="rating">POPULAR.</a></h1>
-</div>
+<main ng-controller="GenreController as vm">
+  <div class="genre-container">
+    <h1 class="rotate genre">TITLE.</h1>
+    <div class="movie-results">
+    </div>
+  </div>
+
+</main>

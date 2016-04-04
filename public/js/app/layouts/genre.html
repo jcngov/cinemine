@@ -17,12 +17,16 @@
         <li class="genres"><a id="genres">{{genre.name}}</a></li>
       </ul>
     </div>
-    <div class="box"></div>
+    <div class="movie-results">
+      <h1 ng-show="showaction">
+        <ul ng-repeat="movie in vm.movieInfo">
+          <li>
+            <a ui-sref="movie" data-movie-id="{{movie.id}}">{{movie.title}}</a>
+            {{movie.id}}
+          </li>
+        </ul>
+      </h1>
+    </div>
   </div>
-    <h1 ng-show="showaction">
-      {{vm.action}}
-      <ul ng-repeat="movie in vm.movieInfo">
-        <li>{{movie.title}}</li>
-      </ul>
-    </h1>
+
 </main>

@@ -37,12 +37,22 @@
       .state('genre', {
         url: '/browse/genre',
         templateUrl: 'js/app/layouts/genre.html'
+      })
+    $stateProvider
+      .state('movie', {
+        url: '/movie',
+        templateUrl: 'js/app/layouts/show.movie.html'
+      })
+    $stateProvider
+      .state('title', {
+        url: '/browse/title',
+        templateUrl: 'js/app/layouts/title.html'
+      })
+    $stateProvider
+      .state('rating', {
+        url: '/browse/rating',
+        templateUrl: 'js/app/layouts/rating.html'
       });
-    // $stateProvider
-    //   .state('action', {
-    //     url: '/genre/action',
-    //     templateUrl: 'js/app/genre/action.genre.html'
-    //   });
 
     $urlRouterProvider.otherwise('/');
   }

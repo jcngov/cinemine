@@ -140,15 +140,14 @@ a:hover {
 
 .genres {
   list-style-type: none;
-  font-size: 100px;
-}
-
-.box {
-  width: 370px;
-  background-color: black;
+  font-size: 80px;
 }
 
 #genres {
   color: black !important;
   text-decoration: none;
+}
+
+.movie-results {
+  padding-left: 20px
 }

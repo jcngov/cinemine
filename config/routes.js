@@ -16,4 +16,4 @@ router.post('/token', tokenController.create);
 router.post('/users/me/token', tokenController.authenticate, tokenController.refresh);
 
 // SEARCH MOVIES CONTROLLER:
-router.get('/movies', movieController.searchGenreAction);
+router.get('/actionmovies', movieController.searchGenreAction);

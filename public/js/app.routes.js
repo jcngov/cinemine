@@ -35,8 +35,9 @@
       })
     $stateProvider
       .state('genre', {
-        url: '/browse/genre',
-        templateUrl: 'js/app/layouts/genre.html'
+        templateUrl: 'js/app/layouts/genre.html',
+        controller: 'GenreController',
+        controllerAs: 'vm'
       })
     $stateProvider
       .state('movie', {

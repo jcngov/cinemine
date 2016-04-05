@@ -122,9 +122,8 @@ a:hover {
   left: -230px;
   top: 350px;
   margin-top: 15px;
-  /*border-bottom: 2px solid*/
-  height: 200px;
-  border: 2px solid;
+  height: 220px;
+  border-bottom: 2px solid black;
 }
 
 .genre-container {
@@ -160,7 +159,10 @@ a.genres {
   padding-left: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
+  position: relative;
+  bottom: 220px;
+  left: 90px;
 }
 
 .one-movie-container {
@@ -174,6 +176,11 @@ a.genres {
 
 /*title search*/
 
+.search-bar {
+  width: 1100px;
+  float: right;
+}
+
 .submit-title-button {
   float: right;
 }
@@ -186,9 +193,9 @@ a.genres {
 
 .title {
   font-size: 200px;
-  position: fixed;
-  left: -180px;
-  top: 350px;
+  position: relative;
+  left: -50px;
+  top: 140px;
   margin-top: 15px;
   border-bottom: 2px solid black;
   height: 220px;

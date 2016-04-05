@@ -143,11 +143,18 @@ a:hover {
   font-size: 80px;
 }
 
-#genres {
+a.genres {
   color: black !important;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .movie-results {
   padding-left: 20px
+}
+
+/*title search*/
+
+.submit-title-button {
+  float: right;
 }

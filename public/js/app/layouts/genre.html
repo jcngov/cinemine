@@ -12,13 +12,13 @@
   <div class="genre-container">
     <h1 class="rotate genre">GENRE.</h1>
     <div class="genre-list-container">
-      <h2 ng-click="showaction=true">{{vm.genres[0].name}}</h2>
+      <!-- <h2 ng-click="showaction=true">{{vm.genres[0].name}}</h2> -->
       <ul ng-repeat="genre in vm.genres">
-        <li class="genres"><a id="genres">{{genre.name}}</a></li>
+        <li class="genres"><a class="genres" ng-click="vm.showGenre(genre, 1);">{{genre}}</a></li>
       </ul>
     </div>
     <div class="movie-results">
-      <h1 ng-show="showaction">
+      <h1>
         <ul ng-repeat="movie in vm.movieInfo">
           <li>
             <a ui-sref="movie" data-movie-id="{{movie.id}}">{{movie.title}}</a>

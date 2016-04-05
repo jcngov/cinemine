@@ -14,5 +14,10 @@
     <div class="movie-results">
     </div>
   </div>
-
+  <form ng-submit="vm.searchByTitle()">
+    <div class="row">
+      <input class="u-full-width" type="text" placeholder="batman" name=searchTitle[title]>
+    </div>
+    <input class="button submit-title-button" type="submit" value="Submit">
+  </form>
 </main>

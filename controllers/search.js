@@ -1,134 +1,108 @@
 var request = require('request');
 var dotenv  = require('dotenv').config();
-
+var _ = require('lodash');
 
 module.exports = {
-  searchGenreAction: searchGenreAction
+  search: search
 }
 
-var uri =  'https://api.themoviedb.org/3/';
-var parseMovie = function(body){
-  return JSON.parse(body);
-}
-var genres = [
-      {
-        "id": 28,
-        "name": "Action"
-      },
-      {
-        "id": 12,
-        "name": "Adventure"
-      },
-      {
-        "id": 16,
-        "name": "Animation"
-      },
-      {
-        "id": 35,
-        "name": "Comedy"
-      },
-      {
-        "id": 80,
-        "name": "Crime"
-      },
-      {
-        "id": 99,
-        "name": "Documentary"
-      },
-      {
-        "id": 18,
-        "name": "Drama"
-      },
-      {
-        "id": 10751,
-        "name": "Family"
-      },
-      {
-        "id": 14,
-        "name": "Fantasy"
-      },
-      {
-        "id": 10769,
-        "name": "Foreign"
-      },
-      {
-        "id": 36,
-        "name": "History"
-      },
-      {
-        "id": 27,
-        "name": "Horror"
-      },
-      {
-        "id": 10402,
-        "name": "Music"
-      },
-      {
-        "id": 9648,
-        "name": "Mystery"
-      },
-      {
-        "id": 10749,
-        "name": "Romance"
-      },
-      {
-        "id": 878,
-        "name": "Science Fiction"
-      },
-      {
-        "id": 10770,
-        "name": "TV Movie"
-      },
-      {
-        "id": 53,
-        "name": "Thriller"
-      },
-      {
-        "id": 10752,
-        "name": "War"
-      },
-      {
-        "id": 37,
-        "name": "Western"
-      }
-]
-
-
-var genreIds = [];
-genres.forEach(function(genre) {
-  if (genre.id) genreIds.push(genre.id)
-})
-
-var results = [];
-
-function searchGenreAction(req, res, next) {
+function search(req, res, next) {
+  var uri = searchMoviesUri({
+    type:  req.query.type,
+    query: req.query.query,
+    page:  req.query.page
+  });
 
   request({
     method: 'GET',
-    uri: uri + 'discover/movie?api_key=' + process.env.API_KEY + '&with_genres=' + genreIds[0] + '&page=1'
+    uri:    uri,
+    json:   true
   }, function (err, response, body) {
-    if (!err) {
-      var movieGenre = parseMovie(body);
-      movieGenre.results.forEach(function(movie) {
-        var movieInfo = {};
-        movieInfo.title         = movie.title
-        movieInfo.overview      = movie.overview
-        movieInfo.backdrop_path = movie.backdrop_path
-        movieInfo.release_date  = movie.release_date
-        movieInfo.poster_path   = movie.poster_path
-        movieInfo.popularity    = movie.popularity
-        movieInfo.id            = movie.id
+    if (err) return next(err);
 
+    var movies = body.results;
+    var results = movies.map(function(movie) {
+      return _.pick(movie, [
+        'id',
+        'title',
+        'overview',
+        'backdrop_path',
+        'release_date',
+        'poster_path',
+        'popularity'
+      ]);
+    });
 
-        results.push(movieInfo);
-
-      });
-      res.send(results);
-    } else {
-      next(err);
-    }
-
+    res.json({
+      page:          body.page,
+      total_results: body.total_results,
+      total_pages:   body.total_pages,
+      results:       results
+    });
   });
 }
 
+
+/**
+ * Builds a search URI dynamically based on a passed in object.
+ *
+ * @param options: Object
+ *   - type: genre, title
+ *   - query: the actual search query (a genre or title)
+ *   - page: optional, defaults to 1
+ */
+function searchMoviesUri(options) {
+  var baseUri  = 'https://api.themoviedb.org/3/',
+      keyQuery = '?api_key=' + process.env.API_KEY,
+      path,
+      queryKey,
+      queryValue,
+      pagePart = '&page=',
+      page     = options.page || 1;
+
+  if (options.type == 'genre') {
+    path       = 'discover/movie';
+    queryKey   = '&with_genres=';
+    queryValue = genreId(options.query);
+  } else if (options.type == 'title') {
+    path       = 'search/movie';
+    queryKey   = '&query=';
+    queryValue = options.query;
+  }
+
+  return baseUri + path + keyQuery + queryKey + queryValue + pagePart + page;
+}
+
+/**
+ * Maps a series of genre names to ids meaningful to our Movie API.
+ *
+ * @param genreName: String
+ */
+function genreId(genreName) {
+  genreName = genreName.toLowerCase();
+  var genreIds = {
+    'action':      28,
+    'adventure':   12,
+    'animation':   16,
+    'comedy':      35,
+    'crime':       80,
+    'documentary': 99,
+    'drama':       18,
+    'family':      10751,
+    'fantasy':     14,
+    'foreign':     10769,
+    'history':     36,
+    'horror':      27,
+    'music':       10402,
+    'mystery':     9648,
+    'romance':     10749,
+    'science fiction': 878,
+    'tv movie':    10770,
+    'thriller':    53,
+    'war':         10752,
+    'western':     37
+  };
+
+  return genreIds[genreName];
+}
 

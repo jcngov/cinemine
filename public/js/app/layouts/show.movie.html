@@ -1,13 +1,4 @@
-<ul class="navbar" ng-controller="NavController as vm">
-  <li class="navs"><a id="navs">Home</a></li>
-  <li class="navs"><a id="navs">My Movies</a></li>
-  <li class="navs"><a id="navs">Movie Bank</a></li>
-  <li class="navs"><a id="navs" ui-sref="browse">Browse</a></li>
-  <li class="navs"><a id="navs">Movie Buffs</a></li>
-  <li ng-click="vm.logOut()" class="navs"><a id="navs">Log Out</a></li>
-  <li class="navs">Welcome</li>
-</ul>
-
-<main ng-controller="GenreController as vm">
+<main>
 <h1>MOVIE DETAILS</h1>
+{{vm.selectedMovie.title}}
 </main>

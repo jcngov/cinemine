@@ -36,6 +36,13 @@
 
     vm.showGenre = showGenre;
     vm.searchByTitle = searchByTitle;
+    vm.showMovie = showMovie;
+    vm.selectedMovie = {};
+
+    function showMovie(movie) {
+      vm.selectedMovie = movie;
+      $log.info(vm.selectedMovie)
+    }
 
     function showGenre(name, page) {
       $log.info("RUNNING SHOW GENRE")
@@ -96,6 +103,8 @@
     function(err) {
       $log.info('error: so sad', err);
     });
+
+
 
   }
 

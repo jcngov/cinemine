@@ -35,12 +35,13 @@
       })
     $stateProvider
       .state('genre', {
+        url: "/genre",
         templateUrl: 'js/app/layouts/genre.html',
         controller: 'GenreController',
         controllerAs: 'vm'
       })
     $stateProvider
-      .state('movie', {
+      .state('genre.movie', {
         url: '/movie/:movieTitle',
         templateUrl: 'js/app/layouts/show.movie.html'
       })

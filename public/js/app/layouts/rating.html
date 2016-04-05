@@ -8,16 +8,18 @@
   <li class="navs">Welcome</li>
 </ul>
 
-<main ng-controller="GenreController as vm">
+<main ng-if="'rating' | isState">
   <div class="popular-container">
     <h1 class="rotate popular">POPULAR.</h1>
   </div>
     <div class="popular-movies">
       <div ng-repeat="movie in vm.movieInfoByPopularity">
         <p class="movie-info">
-          <img class="movie-poster" src="http://image.tmdb.org/t/p/w154{{movie.poster_path}}" ng-class="{mostPopular:$first}">
+          <a ui-sref="rating.movie({movieTitle: movie.title})" ng-click="vm.showMovie(movie)"><img class="movie-poster" src="http://image.tmdb.org/t/p/w154{{movie.poster_path}}" ng-class="{mostPopular:$first}"></a>
         </p>
       </div>
     </div>
 
 </main>
+
+<main ui-view> </main>

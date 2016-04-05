@@ -48,12 +48,26 @@
     $stateProvider
       .state('title', {
         url: '/browse/title',
-        templateUrl: 'js/app/layouts/title.html'
+        templateUrl: 'js/app/layouts/title.html',
+        controller: 'GenreController',
+        controllerAs: 'vm'
+      })
+    $stateProvider
+      .state('title.movie', {
+        url: '/movie/:movieTitle',
+        templateUrl: 'js/app/layouts/show.movie.html'
       })
     $stateProvider
       .state('rating', {
         url: '/browse/rating',
-        templateUrl: 'js/app/layouts/rating.html'
+        templateUrl: 'js/app/layouts/rating.html',
+        controller: 'GenreController',
+        controllerAs: 'vm'
+      })
+    $stateProvider
+      .state('rating.movie', {
+        url: '/movie/:movieTitle',
+        templateUrl: 'js/app/layouts/show.movie.html'
       });
 
     $urlRouterProvider.otherwise('/');

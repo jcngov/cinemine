@@ -8,7 +8,7 @@
   <li class="navs">Welcome</li>
 </ul>
 
-<main ng-controller="GenreController as vm">
+<main ng-if="'title' | isState">
   <form ng-submit="vm.searchByTitle(title, 1)">
     <div class="row search-bar">
       <input class="ten columns" type="text" placeholder="batman" ng-model="vm.title">
@@ -22,11 +22,10 @@
     <div class="movie-results">
       <div ng-repeat="movie in vm.movieInfoByTitle">
         <p class="movie-info">
-          <img class="movie-poster" src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}">
-
-          <!-- {{movie.title}} -->
-<!--           <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}"> -->
+          <a ui-sref="title.movie({movieTitle: movie.title})" ng-click="vm.showMovie(movie)"><img class="movie-poster" src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}"></a>
         </p>
       </div>
     </div>
 </main>
+
+<main ui-view>  </main>

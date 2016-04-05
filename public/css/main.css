@@ -292,7 +292,7 @@ a.genres {
   position: relative;
   left: 20px;
 }
-.add-movie {
+.pure-menu {
   position: absolute;
-  right: 60px;
+  left: 1300px;
 }

@@ -150,11 +150,41 @@ a.genres {
 }
 
 .movie-results {
-  padding-left: 20px
+  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 /*title search*/
 
 .submit-title-button {
   float: right;
+}
+
+.title-container {
+  /*border: 2px solid;*/
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: 200px;
+  position: fixed;
+  left: -180px;
+  top: 350px;
+  margin-top: 15px;
+  border-bottom: 2px solid black;
+  height: 220px;
+  /*border: 2px solid;*/
+}
+
+.movie-info {
+  /*border: 2px solid;*/
+  margin: 0 auto;
+}
+
+.movie-poster {
+  padding-left: 15px;
+  padding-right: 15px;
 }

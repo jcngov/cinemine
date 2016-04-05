@@ -9,10 +9,15 @@
 </ul>
 
 <main ng-controller="GenreController as vm">
-  <div class="genre-container">
-    <h1 class="rotate genre">POPULAR.</h1>
-    <div class="movie-results">
-    </div>
+  <div class="popular-container">
+    <h1 class="rotate popular">POPULAR.</h1>
   </div>
+    <div class="popular-movies">
+      <div ng-repeat="movie in vm.movieInfoByPopularity">
+        <p class="movie-info">
+          <img class="movie-poster" src="http://image.tmdb.org/t/p/w154{{movie.poster_path}}" ng-class="{mostPopular:$first}">
+        </p>
+      </div>
+    </div>
 
 </main>

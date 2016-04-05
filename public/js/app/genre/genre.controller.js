@@ -35,7 +35,6 @@
     ];
 
     vm.showGenre = showGenre;
-
     vm.searchByTitle = searchByTitle;
 
     function showGenre(name, page) {
@@ -79,6 +78,24 @@
         $log.info('error: so sad', err);
       });
     }
+
+
+    $http({
+      method: 'GET',
+      url: `/api/movies/search?type=popular&sory_by=popularity.desc`,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(function(res){
+      if (res.data.results) {
+        vm.movieInfoByPopularity = res.data.results;
+        $log.info('POPULATIN');
+      }
+    },
+    function(err) {
+      $log.info('error: so sad', err);
+    });
 
   }
 

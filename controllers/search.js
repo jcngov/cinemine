@@ -60,6 +60,8 @@ function searchMoviesUri(options) {
       pagePart = '&page=',
       page     = options.page || 1;
 
+      // https://api.themoviedb.org/3/discover/movie?api_key=cc1a250976435d7599c77f097de90b21&sort_by=popularity.desc
+
   if (options.type == 'genre') {
     path       = 'discover/movie';
     queryKey   = '&with_genres=';
@@ -68,6 +70,10 @@ function searchMoviesUri(options) {
     path       = 'search/movie';
     queryKey   = '&query=';
     queryValue = options.query;
+  } else if (options.type == 'popular') {
+    path       = 'discover/movie';
+    queryKey   = '&sort_by=';
+    queryValue = 'popularity.desc';
   }
 
   return baseUri + path + keyQuery + queryKey + queryValue + pagePart + page;

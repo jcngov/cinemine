@@ -230,3 +230,29 @@ a.genres {
 .movie-poster:hover .movie {
   opacity: 1;
 }
+
+/*most popular page*/
+
+.popular {
+  font-size: 200px;
+  position: absolute;
+  left: -362px;
+  top: 466px;
+  margin-top: 15px;
+  height: 220px;
+  border-bottom: 2px solid black;
+}
+
+.popular-movies {
+  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  left: 72px;
+}
+
+.mostPopular {
+/*  height: 800px;
+  width: 500px;*/
+}

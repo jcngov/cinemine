@@ -12,8 +12,8 @@
 
     var service = {
       logIn: logIn,
-      logOut: logOut
-      // currentUser: currentUser
+      logOut: logOut,
+      currentUser: currentUser
     }
 
     return service;
@@ -49,10 +49,11 @@
       $log.info('logged out');
     }
 
-    // function currentUser(){
-    //   var tokenData = tokenService.decode();
-    //   return tokenData;
-    // }
+    function currentUser(){
+      var tokenData = tokenService.decode();
+      $log.info(tokenData);
+      return tokenData;
+    }
   }
 
 })();

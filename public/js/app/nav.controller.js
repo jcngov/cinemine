@@ -12,6 +12,10 @@
 
     var vm = this;
     vm.logOut = logOut;
+    vm.currentUser = {
+      firstName: authService.currentUser().firstName,
+      email: authService.currentUser().email
+    };
 
     function logOut() {
       authService.logOut();

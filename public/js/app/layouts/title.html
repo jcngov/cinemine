@@ -14,10 +14,16 @@
     <div class="movie-results">
     </div>
   </div>
-  <form ng-submit="vm.searchByTitle()">
+  <form ng-submit="vm.searchByTitle(title, 1)">
     <div class="row">
-      <input class="u-full-width" type="text" placeholder="batman" name=searchTitle[title]>
+      <input class="u-full-width" type="text" placeholder="batman" ng-model="vm.title">
     </div>
     <input class="button submit-title-button" type="submit" value="Submit">
   </form>
+  <ul ng-repeat="movie in vm.movieInfoByTitle">
+    <li>
+      {{movie.title}}
+      {{movie.id}}
+    </li>
+  </ul>
 </main>

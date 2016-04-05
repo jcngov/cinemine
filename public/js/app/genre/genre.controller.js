@@ -36,22 +36,7 @@
 
     vm.showGenre = showGenre;
 
-    // vm.genres.forEach(function(genre) {
-    //   vm.genreList = genre.name;
-    //   return vm.genreList;
-    // })
-
-    // vm.getActionMovies = getActionMovies;
     vm.searchByTitle = searchByTitle;
-
-    // vm.movieInfo = {
-    //   title = vm.movieInfo.title,
-    //   overview = vm.movieInfo.overview,
-    //   backdrop_path = vm.movieInfo.backdrop_path,
-    //   release_date = vm.movieInfo.release_date,
-    //   poster_path = vm.movieInfo.poster_path,
-    //   popularity = vm.movieInfo.popularity
-    // }
 
     function showGenre(name, page) {
       $log.info("RUNNING SHOW GENRE")
@@ -75,17 +60,19 @@
     }
 
 
-    function searchByTitle(){
+    function searchByTitle(title, page){
       $http({
         method: 'GET',
-        url: '/api/moviebytitle',
+        url: `/api/movies/search?type=title&query=${vm.title}&page=${page}`,
         headers: {
           'Content-Type': 'application/json'
         }
       })
       .then(function(res){
-        if (res.data) {
-          vm.movieTitle = res.data;
+        if (res.data.results) {
+          vm.movieInfoByTitle = res.data.results;
+          $log.info('SEARCHIN');
+          $log.info(vm.movieInfoByTitle);
         }
       },
       function(err) {

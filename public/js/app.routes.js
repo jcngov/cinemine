@@ -68,6 +68,16 @@
       .state('rating.movie', {
         url: '/movie/:movieTitle',
         templateUrl: 'js/app/layouts/show.movie.html'
+      })
+    $stateProvider
+      .state('moviebank', {
+        url: '/moviebank',
+        templateUrl: 'js/app/layouts/moviebank.html'
+      })
+    $stateProvider
+      .state('mymovies', {
+        url: '/mymovies',
+        templateUrl: 'js/app/layouts/mymovies.html'
       });
 
     $urlRouterProvider.otherwise('/');

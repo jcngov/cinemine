@@ -21,7 +21,7 @@
       <h1>
         <ul ng-repeat="movie in vm.movieInfo">
           <li>
-            <a ui-sref="movie" data-movie-id="{{movie.id}}">{{movie.title}}</a>
+            <a ui-sref="movie({movieTitle: movie.title})" data-movie-id="{{movie.id}}">{{movie.title}}</a>
             {{movie.id}}
           </li>
         </ul>

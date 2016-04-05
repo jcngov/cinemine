@@ -41,7 +41,7 @@
       })
     $stateProvider
       .state('movie', {
-        url: '/movie',
+        url: '/movie/:movieTitle',
         templateUrl: 'js/app/layouts/show.movie.html'
       })
     $stateProvider

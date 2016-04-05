@@ -1,4 +1,18 @@
 <main>
-<h1>MOVIE DETAILS</h1>
-{{vm.selectedMovie.title}}
+<div class="title-overview">
+  <p>{{vm.selectedMovie.title}}</p>
+  <p class="release-date">Released on: {{vm.selectedMovie.release_date}}</p>
+  <input class="button add-movie" type="submit" value="Add">
+  <p class="overview">{{vm.selectedMovie.overview}}</p>
+</div>
+<div class="picture-container">
+  <img class="poster" src="http://image.tmdb.org/t/p/w780{{vm.selectedMovie.poster_path}}">
+  <div class="backdrop-container">
+    <img class="backdrop" src="http://image.tmdb.org/t/p/w780{{vm.selectedMovie.backdrop_path}}">
+    <img class="backdrop" src="http://image.tmdb.org/t/p/w780{{vm.selectedMovie.backdrop_path}}">
+    <img class="backdrop" src="http://image.tmdb.org/t/p/w780{{vm.selectedMovie.backdrop_path}}">
+  </div>
+</div>
+
+  <p>{{vm.selectedMovie.popularity}}</p>
 </main>

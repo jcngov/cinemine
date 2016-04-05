@@ -256,3 +256,43 @@ a.genres {
 /*  height: 800px;
   width: 500px;*/
 }
+
+/*movie show page*/
+
+.picture-container {
+  /*border: 2px solid;*/
+  display: flex;
+  position: relative;
+  right: 33px;
+}
+
+.backdrop-container {
+  /*border: 2px solid;*/
+}
+
+.backdrop {
+  width: 650px !important;
+}
+
+.poster {
+  height: 1110px !important;
+}
+
+.title-overview {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.overview {
+  border-bottom: 2px solid;
+  height: 100px;
+}
+
+.release-date {
+  position: relative;
+  left: 20px;
+}
+.add-movie {
+  position: absolute;
+  right: 60px;
+}

@@ -134,8 +134,9 @@ a:hover {
 
 .genre-list-container {
   border: 2px solid;
-  margin: 0 auto;
   margin-left: 200px;
+  text-align: center;
+  margin-right: 100px;
 }
 
 .genres {
@@ -149,11 +150,26 @@ a.genres {
   cursor: pointer;
 }
 
+.movie-link {
+  position: relative;
+  top: 220px;
+  font-size: 30px;
+}
+
 .movie-results {
   padding-left: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+.one-movie-container {
+  /*border: 2px solid;*/
+  list-style-type: none;
+  text-align: center;
+  margin: 0 auto;
+  height: 520px;
+  /*background: black;*/
 }
 
 /*title search*/
@@ -185,6 +201,25 @@ a.genres {
 }
 
 .movie-poster {
-  padding-left: 15px;
+  padding-left: 30px;
   padding-right: 15px;
+}
+
+.movie {
+  background: rgba(0,0,0,0.5);
+   color: white;
+   cursor: pointer;
+   display: table;
+   height: 513px;
+   width: 342px;
+   position: relative;
+   top: -525px;
+   left: 31px;
+   text-decoration: none;
+   opacity: 0;
+   /*text-align: center;*/
+}
+
+.movie-poster:hover .movie {
+  opacity: 1;
 }

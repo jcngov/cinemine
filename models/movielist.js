@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
     debug    = require('debug')('app:models'),
+    User     = require('./user.js');
 
 var movieSchema = new mongoose.Schema({
   title:         {type: String},
@@ -18,7 +19,7 @@ var favoritesSchema = new mongoose.Schema({
 
 var movieListSchema = new mongoose.Schema({
   movies:          [movieSchema],
-  favorite_movies: [favoritesSchema]
+  favorite_movies: [favoritesSchema],
   creator: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'

@@ -1,5 +1,6 @@
-var mongoose = require('mongoose'),
-    debug    = require('debug')('app:models');
+var mongoose  = require('mongoose'),
+    debug     = require('debug')('app:models'),
+    Movielist = require('./movielist.js');
 
 var userSchema = new mongoose.Schema({
   firstName:            {type: String, required: true},

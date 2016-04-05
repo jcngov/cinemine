@@ -16,12 +16,17 @@
         <li class="genres"><a class="genres" ng-click="vm.showGenre(genre, 1);">{{genre}}</a></li>
       </ul>
     </div>
-    <div class="movie-results">
+    <div class="movies">
       <h1>
         <ul ng-repeat="movie in vm.movieInfo">
-          <li>
-            <a ui-sref="movie({movieTitle: movie.title})" data-movie-id="{{movie.id}}">{{movie.title}}</a>
-            {{movie.id}}
+          <li class="one-movie-container">
+            <img class="movie-poster" src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}" title="{{movie.title}}">
+<!-- <div id="divID" ng-init="imgsrc='http://image.tmdb.org/t/p/w342{{movie.poster_path}}'" ng-mouseover={{movie.title}} ng-mouseout="imgsrc='http://image.tmdb.org/t/p/w342{{movie.poster_path}}'">
+  <img src="{{imgsrc}}">
+</div> -->
+            <br>
+            <a class="movie" ui-sref="movie({movieTitle: movie.title})" data-movie-id="{{movie.id}}"><p class="movie-link">{{movie.title}}</p></a>
+            <!-- <a class="movie-link" ui-sref="movie({movieTitle: movie.title})" data-movie-id="{{movie.id}}">{{movie.title}}</a> -->
           </li>
         </ul>
       </h1>
@@ -29,3 +34,4 @@
   </div>
 
 </main>
+

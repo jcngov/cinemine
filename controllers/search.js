@@ -3,7 +3,8 @@ var dotenv  = require('dotenv').config();
 var _ = require('lodash');
 
 module.exports = {
-  search: search
+  search: search,
+  getMovieImages: getMovieImages
 }
 
 function search(req, res, next) {
@@ -111,4 +112,24 @@ function genreId(genreName) {
 
   return genreIds[genreName];
 }
+
+function getMovieImages(req, res, next) {
+  var baseUri  = 'https://api.themoviedb.org/3/',
+      keyQuery = '?api_key=' + process.env.API_KEY,
+      id       = req.params.id
+
+  request({
+    method: 'GET',
+    uri:    baseUri + 'movie/' + id + '/images' + keyQuery,
+    json:   true
+  }, function (err, response, body) {
+    if (err) return next(err);
+
+    var results = body.backdrops;
+    res.send({results: results});
+    });
+
+}
+
+
 

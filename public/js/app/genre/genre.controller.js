@@ -39,13 +39,17 @@
     vm.showMovie = showMovie;
     vm.selectedMovie = {};
 
+    vm.addMovie = addMovie;
+    vm.watchedMovies = authService.currentUser().watchedMovies;
+
+    vm.getMovieImages = getMovieImages;
+
     function showMovie(movie) {
       vm.selectedMovie = movie;
       $log.info(vm.selectedMovie)
     }
 
     function showGenre(name, page) {
-      $log.info("RUNNING SHOW GENRE")
       $http({
         method: 'GET',
         url:    `/api/movies/search?type=genre&query=${name}&page=${page}`,
@@ -97,20 +101,12 @@
     .then(function(res){
       if (res.data.results) {
         vm.movieInfoByPopularity = res.data.results;
-        $log.info('POPULATIN');
       }
     },
     function(err) {
       $log.info('error: so sad', err);
     });
 
-    vm.addMovie = addMovie;
-    // vm.watchedMovies = {
-    //   title: "",
-    //   poster_path: ""
-    // }
-
-    vm.watchedMovies = authService.currentUser().watchedMovies;
     function addMovie(data){
       $http({
         method: 'PUT',
@@ -124,35 +120,35 @@
       .then(
         function(res) {
           $log.info('SUCCESSSSSS: ', res)
+          if (res.data.watchedMovies) {
+          vm.watchedMovies = res.data.watchedMovies;
+          $log.info("logging watchedMovies", vm.watchedMovies);
+          }
         },
         function(err) {
           $log.info('error ', err);
       });
     }
 
-    // vm.getMovie = getMovie;
-
-    // function getMovie(data){
-    //   $log.info("HI");
-    //   $http({
-    //     method: 'GET',
-    //     url: 'api/users/' + authService.currentUser()._id,
-    //     data: data,
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     }
-    //   })
-    //   .then(
-    //     function(res) {
-    //       if (res.data) {
-    //         vm.watchedMovies = res.data.watchedMovies;
-    //       }
-    //       $log.info('COOOOOOOOL', res.data)
-    //     },
-    //     function(err) {
-    //       $log.info('ERROR', err);
-    //     });
-    // }
+    function getMovieImages(id){
+      $http({
+        method: 'GET',
+        url: 'api/images/' + id,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(
+        function(res) {
+          $log.info('COOOOOOOOL', res.data.results)
+          if (res.data.results) {
+            vm.movieImages = res.data.results;
+          }
+        },
+        function(err) {
+          $log.info('ERROR', err);
+        });
+    }
 
   }
 

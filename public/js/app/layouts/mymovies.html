@@ -13,8 +13,10 @@
 <h1>Favorite Movies</h1>
 
 <h1>Watched Movies</h1>
+{{vm.watchedMovies}}
 <ul ng-repeat="movie in vm.watchedMovies">
   <li>{{movie.title}}</li>
+  <img src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}"></li>
 </ul>
 
 </div>

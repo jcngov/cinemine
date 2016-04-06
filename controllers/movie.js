@@ -17,9 +17,7 @@ function addMovie(req, res, next) {
       user.save(function(err, response) {
         console.log('SAVED', response);
         console.log('ERROR', err)
-      })
-      res.json({
-        success: 'movie added'
+        res.json(response);
       })
     }, function(err) {
       console.log('no user exists', err)

@@ -18,6 +18,7 @@ router.post('/users/me/token', tokenController.authenticate, tokenController.ref
 
 // SEARCH MOVIES CONTROLLER:
 router.get('/movies/search', movieController.search);
+router.get('/images/:id', movieController.getMovieImages);
 // router.get('/moviebytitle', movieController.searchTitle);
 
 router.put('/users/:id/movielist', tokenController.authenticate, movieListController.addMovie);

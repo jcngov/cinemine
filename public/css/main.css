@@ -307,16 +307,47 @@ a.genres {
 .favorite-list, .watched-list, .unwatched-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .movie-in-list {
   padding-left: 10px;
 }
-
+/*
 .list-text {
   font-size: 200px;
   margin-bottom: 0px;
   margin-top: 20px;
+  text-align: center;
 }
+*/
+/*moviebuffs*/
+
+.username {
+  font-size: 100px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.buffs, .following, .followers {
+  padding-right: 15px;
+}
+
+.user-title-info {
+  text-align: center;
+}
+
+.list-text {
+  border: 2px solid;
+  width: 40%;
+  margin: 0 auto;
+  padding: 30px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+
 
 

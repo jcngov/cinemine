@@ -18,6 +18,30 @@
 </div>
 
 <div ng-show="vm.userInfo">
-  <h1>{{vm.userInfo.firstName}}</h1>
-  <button ng-click="vm.clearUser()"></button>
+  <div class="user-title-info">
+    <h1 class="username">{{vm.userInfo.firstName}}'s</h1>
+    <span class="following">Following</span>
+    <span class="followers">Followers</span>
+    <span class="buffs" ng-click="vm.clearUser()">See More Buffs</span>
+  </div>
+
+  <div class="list-container">
+    <h1 class="list-text">FAVORITES</h1>
+    <div class="favorite-list">
+      <ul ng-repeat="movie in vm.userInfo.favoriteMovies">
+        <!-- <li>{{movie.title}}</li> -->
+        <img class="movie-in-list" src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}">
+      </ul>
+    </div>
+
+    <h1 class="list-text">WATCHED</h1>
+    <div class="watched-list">
+      <ul ng-repeat="movie in vm.userInfo.watchedMovies">
+        <!-- <li>{{movie.title}}</li> -->
+        <img class="movie-in-list" src="http://image.tmdb.org/t/p/w154{{movie.poster_path}}">
+      </ul>
+    </div>
+
+  </div>
+
 </div>

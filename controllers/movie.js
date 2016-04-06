@@ -25,5 +25,3 @@ function addMovie(req, res, next) {
       console.log('no user exists', err)
     })
 }
-
-// addMovie();

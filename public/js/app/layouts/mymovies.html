@@ -9,6 +9,13 @@
   <li class="navs">Welcome</li>
 </ul>
 
+<div ng-controller="GenreController as vm">
 <h1>Favorite Movies</h1>
 
 <h1>Watched Movies</h1>
+<ul ng-repeat="movie in vm.watchedMovies">
+  <li>{{movie.title}}</li>
+</ul>
+
+</div>
+

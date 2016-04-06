@@ -105,9 +105,13 @@
     });
 
     vm.addMovie = addMovie;
+    // vm.watchedMovies = {
+    //   title: "",
+    //   poster_path: ""
+    // }
 
+    vm.watchedMovies = authService.currentUser().watchedMovies;
     function addMovie(data){
-      $log.info("HELP", data);
       $http({
         method: 'PUT',
         url: 'api/users/' + authService.currentUser()._id + '/movielist',
@@ -119,12 +123,36 @@
       })
       .then(
         function(res) {
-          $log.info('success: ', res.data)
+          $log.info('SUCCESSSSSS: ', res)
         },
         function(err) {
           $log.info('error ', err);
       });
     }
+
+    // vm.getMovie = getMovie;
+
+    // function getMovie(data){
+    //   $log.info("HI");
+    //   $http({
+    //     method: 'GET',
+    //     url: 'api/users/' + authService.currentUser()._id,
+    //     data: data,
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     }
+    //   })
+    //   .then(
+    //     function(res) {
+    //       if (res.data) {
+    //         vm.watchedMovies = res.data.watchedMovies;
+    //       }
+    //       $log.info('COOOOOOOOL', res.data)
+    //     },
+    //     function(err) {
+    //       $log.info('ERROR', err);
+    //     });
+    // }
 
   }
 

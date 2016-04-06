@@ -296,3 +296,26 @@ a.genres {
   position: absolute;
   left: 1300px;
 }
+
+/*movie list page*/
+
+/*.list-container, .favorite-list, .watched-list {
+  border: 2px solid;
+}*/
+
+.favorite-list, .watched-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-in-list {
+  padding-left: 10px;
+}
+
+.list-text {
+  font-size: 200px;
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+

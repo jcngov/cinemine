@@ -148,7 +148,7 @@
           if (res.data.watchedMovies) {
           getCurrentUser();
           $log.info(vm.currentUser);
-          $log.info("added to watched movies", vm.watchedMovies);
+          $log.info("added to watched movies", vm.currentUser.watchedMovies);
           }
         },
         function(err) {
@@ -169,8 +169,8 @@
       .then(
         function(res) {
           if (res.data.favoriteMovies) {
-          vm.favoriteMovies = res.data.favoriteMovies;
-          $log.info("added to Favorites", vm.favoriteMovies);
+          getCurrentUser();
+          $log.info("added to Favorites", vm.currentUser.favoriteMovies);
           }
         },
         function(err) {

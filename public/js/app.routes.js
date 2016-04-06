@@ -76,6 +76,13 @@
       .state('mymovies', {
         url: '/mymovies',
         templateUrl: 'js/app/layouts/mymovies.html'
+      })
+    $stateProvider
+      .state('moviebuffs', {
+        url: '/moviebuffs',
+        templateUrl: 'js/app/layouts/moviebuffs.html',
+        controller: 'UserController',
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/');

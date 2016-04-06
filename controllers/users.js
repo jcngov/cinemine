@@ -32,6 +32,7 @@ function show(req, res, next) {
         message: "No user with this id"
       });
     } else {
+      console.log(user.followers());
       res.json({
         success: true,
         message: "User Retrieved!",

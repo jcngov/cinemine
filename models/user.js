@@ -2,25 +2,7 @@ var mongoose  = require('mongoose'),
     debug     = require('debug')('app:models');
     // Movielist = require('./movielist.js');
 
-// var movieSchema = new mongoose.Schema({
-//   title:         {type: String},
-//   tagline:       {type: String},
-//   overview:      {type: String},
-//   poster_path:   {type: String},
-//   backdrop_path: {type: String},
-//   release_date:  {type: Date},
-//   genre_ids:     {type: Number},
-//   popularity:    {type: Number}
-// });
 
-// var favoritesSchema = new mongoose.Schema({
-//   movies: [movieSchema],
-// });
-
-// var movieListSchema = new mongoose.Schema({
-//   movies:          [movieSchema],
-//   favorite_movies: [favoritesSchema],
-// });
 
 var userSchema = new mongoose.Schema({
   firstName: {type: String, required: true},
@@ -28,8 +10,17 @@ var userSchema = new mongoose.Schema({
   email:     {type: String, required: true, unique: true},
   watchedMovies: Array,
   favoriteMovies: Array,
-  unwatchedMovies: Array
+  unwatchedMovies: Array,
+  following: [{ type:mongoose.Schema.Types.ObjectId, ref:'User'}]
 });
+
+userSchema.methods.followers = function(){
+  console.log(this._id);
+  User.find({following: {$in: [this._id]}}, function(err, users) {
+    console.log(users);
+    return users;
+  });
+}
 
 userSchema.plugin(require('mongoose-bcrypt'));
 

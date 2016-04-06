@@ -9,4 +9,13 @@
   <li class="navs">Welcome</li>
 </ul>
 
-<h1>Movie Bank</h1>
+<div class="list-container" ng-controller="MovieController as vm">
+  <h1 class="list-text">Movie Bank</h1>
+  <div class="unwatched-list">
+    <ul ng-repeat="movie in vm.currentUser.unwatchedMovies">
+      <!-- <li>{{movie.title}}</li> -->
+      <img class="movie-in-list" src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}">
+    </ul>
+  </div>
+</div>
+

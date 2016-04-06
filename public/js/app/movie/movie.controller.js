@@ -41,6 +41,7 @@
     vm.addMovie       = addMovie;
     // vm.watchedMovies  = authService.currentUser().watchedMovies;
     vm.addFavorites   = addFavorites;
+    vm.addUnwatched   = addUnwatched;
     // vm.favoriteMovies = authService.currentUser().favoriteMovies;
     vm.getMovieImages = getMovieImages;
     vm.getCurrentUser = getCurrentUser;
@@ -159,7 +160,7 @@
     function addFavorites(data){
       $http({
         method: 'PUT',
-        url: 'api/users/' + authService.currentUser()._id + '/favorites',
+        url: 'api/users/favorites',
         data: data,
         headers: {
           'Content-Type': 'application/json',
@@ -171,6 +172,28 @@
           if (res.data.favoriteMovies) {
           getCurrentUser();
           $log.info("added to Favorites", vm.currentUser.favoriteMovies);
+          }
+        },
+        function(err) {
+          $log.info('error ', err);
+      });
+    }
+
+    function addUnwatched(data){
+      $http({
+        method: 'PUT',
+        url: 'api/users/unwatched',
+        data: data,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokenService.retrieve()}`
+        }
+      })
+      .then(
+        function(res) {
+          if (res.data.unwatchedMovies) {
+          getCurrentUser();
+          $log.info("added to movie bank", vm.currentUser.unwatchedMovies);
           }
         },
         function(err) {

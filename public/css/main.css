@@ -303,7 +303,7 @@ a.genres {
   border: 2px solid;
 }*/
 
-.favorite-list, .watched-list {
+.favorite-list, .watched-list, .unwatched-list {
   display: flex;
   flex-wrap: wrap;
 }

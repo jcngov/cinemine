@@ -5,9 +5,9 @@
     .module('app')
     .controller('GenreController', GenreController);
 
-  GenreController.$inject = ['$log', '$http'];
+  GenreController.$inject = ['$log', '$http', 'authService', 'tokenService'];
 
-  function GenreController($log, $http){
+  function GenreController($log, $http, authService, tokenService){
     $log.info('GenreController loaded')
     var vm = this;
 
@@ -104,7 +104,27 @@
       $log.info('error: so sad', err);
     });
 
+    vm.addMovie = addMovie;
 
+    function addMovie(data){
+      $log.info("HELP", data);
+      $http({
+        method: 'PUT',
+        url: 'api/users/' + authService.currentUser()._id + '/movielist',
+        data: data,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokenService.retrieve()}`
+        }
+      })
+      .then(
+        function(res) {
+          $log.info('success: ', res.data)
+        },
+        function(err) {
+          $log.info('error ', err);
+      });
+    }
 
   }
 

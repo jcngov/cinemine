@@ -6,6 +6,7 @@ module.exports = router;
 var usersController = require('../controllers/users');
 var tokenController = require('../config/token_auth');
 var movieController = require('../controllers/search');
+var movieListController = require('../controllers/movie');
 
 router.get('/users', usersController.index);
 router.post('/users', usersController.create);
@@ -18,3 +19,5 @@ router.post('/users/me/token', tokenController.authenticate, tokenController.ref
 // SEARCH MOVIES CONTROLLER:
 router.get('/movies/search', movieController.search);
 // router.get('/moviebytitle', movieController.searchTitle);
+
+router.put('/users/:id/movielist', tokenController.authenticate, movieListController.addMovie);

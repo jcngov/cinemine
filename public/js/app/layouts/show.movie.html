@@ -1,19 +1,19 @@
 <main>
 <div class="title-overview">
   <p>{{vm.selectedMovie.title}}</p>
-  <p class="release-date">Released on: {{vm.selectedMovie.release_date}}</p>
   <div class="pure-menu pure-menu-horizontal">
       <ul class="pure-menu-list">
           <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
               <a href="#" id="menuLink1" class="pure-menu-link">Add</a>
               <ul class="pure-menu-children">
                   <li class="pure-menu-item"><a ui-sref="mymovies" class="pure-menu-link">Favorites</a></li>
-                  <li class="pure-menu-item"><a ui-sref="mymovies" class="pure-menu-link">Watched Movies</a></li>
+                  <li class="pure-menu-item"><a ui-sref="mymovies" ng-click="vm.addMovie(vm.selectedMovie)" class="pure-menu-link">Watched Movies</a></li>
                   <li class="pure-menu-item"><a ui-sref="moviebank" class="pure-menu-link">Movie Bank</a></li>
               </ul>
           </li>
       </ul>
   </div>
+  <p class="release-date">Released on: {{vm.selectedMovie.release_date}}</p>
   <!-- <input class="button add-movie" type="submit" value="Add"> -->
   <p class="overview">{{vm.selectedMovie.overview}}</p>
 </div>

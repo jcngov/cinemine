@@ -20,10 +20,6 @@ var favoritesSchema = new mongoose.Schema({
 var movieListSchema = new mongoose.Schema({
   movies:          [movieSchema],
   favorite_movies: [favoritesSchema],
-  creator: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
-           }
 });
 
 var Movielist = mongoose.model('Movielist', movieListSchema);

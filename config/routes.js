@@ -22,3 +22,4 @@ router.get('/images/:id', movieController.getMovieImages);
 // router.get('/moviebytitle', movieController.searchTitle);
 
 router.put('/users/:id/movielist', tokenController.authenticate, movieListController.addMovie);
+router.put('/users/:id/favorites', tokenController.authenticate, movieListController.addFavorites);

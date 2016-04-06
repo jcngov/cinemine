@@ -41,6 +41,8 @@
 
     vm.addMovie = addMovie;
     vm.watchedMovies = authService.currentUser().watchedMovies;
+    vm.addFavorites = addFavorites;
+    vm.favoriteMovies = authService.currentUser().favoriteMovies;
 
     vm.getMovieImages = getMovieImages;
 
@@ -122,7 +124,30 @@
           $log.info('SUCCESSSSSS: ', res)
           if (res.data.watchedMovies) {
           vm.watchedMovies = res.data.watchedMovies;
-          $log.info("logging watchedMovies", vm.watchedMovies);
+          $log.info("added to watched movies", vm.watchedMovies);
+          }
+        },
+        function(err) {
+          $log.info('error ', err);
+      });
+    }
+
+    function addFavorites(data){
+      $http({
+        method: 'PUT',
+        url: 'api/users/' + authService.currentUser()._id + '/favorites',
+        data: data,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokenService.retrieve()}`
+        }
+      })
+      .then(
+        function(res) {
+          $log.info('added to favorites: ', res)
+          if (res.data.favoriteMovies) {
+          vm.favoriteMovies = res.data.favoriteMovies;
+          $log.info("logging watchedMovies", vm.favoriteMovies);
           }
         },
         function(err) {

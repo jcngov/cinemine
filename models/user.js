@@ -27,7 +27,8 @@ var userSchema = new mongoose.Schema({
   lastName:  {type: String, required: true},
   email:     {type: String, required: true, unique: true},
   watchedMovies: Array,
-  favoriteMovies: Array
+  favoriteMovies: Array,
+  unwatchedMovies: Array
 });
 
 userSchema.plugin(require('mongoose-bcrypt'));

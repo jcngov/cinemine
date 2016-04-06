@@ -18,9 +18,9 @@ var jwt = require('jsonwebtoken');
      email: user.email,
      firstName:  user.firstName,
      lastName: user.lastName,
-     watchedMovies: user.watchedMovies,
-     favoriteMovies: user.favoriteMovies,
-     unwatchedMovies: user.unwatchedMovies,
+     // watchedMovies: user.watchedMovies,
+     // favoriteMovies: user.favoriteMovies,
+     // unwatchedMovies: user.unwatchedMovies,
      use:   [
        'public_api',
        'user'

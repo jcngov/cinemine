@@ -39,11 +39,34 @@
     vm.showMovie      = showMovie;
     vm.selectedMovie  = {};
     vm.addMovie       = addMovie;
-    vm.watchedMovies  = authService.currentUser().watchedMovies;
+    // vm.watchedMovies  = authService.currentUser().watchedMovies;
     vm.addFavorites   = addFavorites;
-    vm.favoriteMovies = authService.currentUser().favoriteMovies;
+    // vm.favoriteMovies = authService.currentUser().favoriteMovies;
     vm.getMovieImages = getMovieImages;
+    vm.getCurrentUser = getCurrentUser;
+    vm.currentUser;
     // vm.getMostPopularMovies = getMostPopularMovies;
+    getCurrentUser();
+
+    function getCurrentUser(){
+      $http({
+        method: 'GET',
+        url: '/api/users/me',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokenService.retrieve()}`
+        }
+      })
+      .then(function(res){
+        $log.info("USER:", res);
+        vm.currentUser = res.data;
+        $log.info("CURRENTINFO", vm.currentUser);
+      },
+      function(err) {
+        $log.info("ERR:", err);
+      });
+    }
+
 
     function showMovie(movie) {
       vm.selectedMovie = movie;
@@ -113,7 +136,7 @@
     function addMovie(data){
       $http({
         method: 'PUT',
-        url: 'api/users/' + authService.currentUser()._id + '/movielist',
+        url: 'api/users/movielist',
         data: data,
         headers: {
           'Content-Type': 'application/json',
@@ -123,7 +146,8 @@
       .then(
         function(res) {
           if (res.data.watchedMovies) {
-          vm.watchedMovies = res.data.watchedMovies;
+          getCurrentUser();
+          $log.info(vm.currentUser);
           $log.info("added to watched movies", vm.watchedMovies);
           }
         },

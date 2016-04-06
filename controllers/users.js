@@ -25,7 +25,7 @@ function show(req, res, next) {
   User.findById(req.params.id, function(err, user) {
     if (err) {
       res.json({
-        message: "Could not find user because " + err
+        message: "HUUUHHHHHHHHH Could not find user because " + err
       });
     } else if (!user) {
       res.json({
@@ -68,9 +68,12 @@ function create(req, res, next) {
 };
 
 function me(req, res, next) {
+  console.log("HERROOOOOO");
+  console.log(req.decoded._id);
   User
-    .findOne({email: req.decoded.email}).exec()
+    .findById(req.decoded._id).exec()
     .then(function(user) {
+      console.log(user);
       res.json(user);
     })
     .catch(function(err) {

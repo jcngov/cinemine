@@ -11,7 +11,7 @@
 
 <div ng-controller="MovieController as vm">
 <h1>Favorite Movies</h1>
-<ul ng-repeat="movie in vm.favoriteMovies">
+<ul ng-repeat="movie in vm.currentUser.watchedMovies">
   <li>{{movie.title}}</li>
   <img src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}">
 </ul>
@@ -19,7 +19,7 @@
 
 <h1>Watched Movies</h1>
 
-<ul ng-repeat="movie in vm.watchedMovies">
+<ul ng-repeat="movie in vm.currentUser.watchedMovies">
   <li>{{movie.title}}</li>
   <img src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}">
 </ul>

@@ -51,7 +51,6 @@
 
     function currentUser(){
       var tokenData = tokenService.decode();
-      $log.info(tokenData);
       return tokenData;
     }
   }

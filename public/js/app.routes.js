@@ -24,9 +24,7 @@
     $stateProvider
       .state('home', {
         url: '/home',
-        templateUrl: '/js/app/layouts/home.html',
-        controller: 'NavController',
-        controllerAs: 'vm'
+        templateUrl: '/js/app/layouts/home.html'
       })
     $stateProvider
       .state('browse', {
@@ -37,7 +35,7 @@
       .state('genre', {
         url: "/genre",
         templateUrl: 'js/app/layouts/genre.html',
-        controller: 'GenreController',
+        controller: 'MovieController',
         controllerAs: 'vm'
       })
     $stateProvider
@@ -49,7 +47,7 @@
       .state('title', {
         url: '/browse/title',
         templateUrl: 'js/app/layouts/title.html',
-        controller: 'GenreController',
+        controller: 'MovieController',
         controllerAs: 'vm'
       })
     $stateProvider
@@ -61,7 +59,7 @@
       .state('rating', {
         url: '/browse/rating',
         templateUrl: 'js/app/layouts/rating.html',
-        controller: 'GenreController',
+        controller: 'MovieController',
         controllerAs: 'vm'
       })
     $stateProvider

@@ -3,12 +3,12 @@
 
   angular
     .module('app')
-    .controller('GenreController', GenreController);
+    .controller('MovieController', MovieController);
 
-  GenreController.$inject = ['$log', '$http', 'authService', 'tokenService'];
+  MovieController.$inject = ['$log', '$http', 'authService', 'tokenService'];
 
-  function GenreController($log, $http, authService, tokenService){
-    $log.info('GenreController loaded')
+  function MovieController($log, $http, authService, tokenService){
+    $log.info('MovieController loaded')
     var vm = this;
 
     vm.genres = [
@@ -34,17 +34,16 @@
       "Western"
     ];
 
-    vm.showGenre = showGenre;
-    vm.searchByTitle = searchByTitle;
-    vm.showMovie = showMovie;
-    vm.selectedMovie = {};
-
-    vm.addMovie = addMovie;
-    vm.watchedMovies = authService.currentUser().watchedMovies;
-    vm.addFavorites = addFavorites;
+    vm.showGenre      = showGenre;
+    vm.searchByTitle  = searchByTitle;
+    vm.showMovie      = showMovie;
+    vm.selectedMovie  = {};
+    vm.addMovie       = addMovie;
+    vm.watchedMovies  = authService.currentUser().watchedMovies;
+    vm.addFavorites   = addFavorites;
     vm.favoriteMovies = authService.currentUser().favoriteMovies;
-
     vm.getMovieImages = getMovieImages;
+    // vm.getMostPopularMovies = getMostPopularMovies;
 
     function showMovie(movie) {
       vm.selectedMovie = movie;
@@ -92,22 +91,24 @@
       });
     }
 
+    // function getMostPopularMovies(data){
+      $http({
+        method: 'GET',
+        url: `/api/movies/search?type=popular&sory_by=popularity.desc`,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(function(res){
+        if (res.data.results) {
+          vm.movieInfoByPopularity = res.data.results;
+        }
+      },
+      function(err) {
+        $log.info('error: so sad', err);
+      });
+    // }
 
-    $http({
-      method: 'GET',
-      url: `/api/movies/search?type=popular&sory_by=popularity.desc`,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(function(res){
-      if (res.data.results) {
-        vm.movieInfoByPopularity = res.data.results;
-      }
-    },
-    function(err) {
-      $log.info('error: so sad', err);
-    });
 
     function addMovie(data){
       $http({
@@ -121,7 +122,6 @@
       })
       .then(
         function(res) {
-          $log.info('SUCCESSSSSS: ', res)
           if (res.data.watchedMovies) {
           vm.watchedMovies = res.data.watchedMovies;
           $log.info("added to watched movies", vm.watchedMovies);
@@ -144,10 +144,9 @@
       })
       .then(
         function(res) {
-          $log.info('added to favorites: ', res)
           if (res.data.favoriteMovies) {
           vm.favoriteMovies = res.data.favoriteMovies;
-          $log.info("logging watchedMovies", vm.favoriteMovies);
+          $log.info("added to Favorites", vm.favoriteMovies);
           }
         },
         function(err) {

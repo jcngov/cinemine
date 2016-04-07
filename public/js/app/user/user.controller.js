@@ -49,7 +49,7 @@
       $log.info(data);
       $http({
         method: 'PUT',
-        url: 'api/users/follow',
+        url: 'api/users/me/follow',
         data: data,
         headers: {
           'Content-Type': 'application/json',
@@ -57,6 +57,7 @@
         }
       })
       .then(function(res) {
+        $log.info(res);
         if (res.data) {
           vm.following = res.data.following
         }
@@ -64,22 +65,6 @@
       },
       function(err) {
         $log.info('WHATS HAPPENING ', err);
-      // })
-      // .then(function(){
-      //   $http({
-      //     method: 'GET',
-      //     url: 'api/users/' + vm.following._id,
-      //     headers: {
-      //       'Content-Type': 'application/json',
-      //       'Authorization': `Bearer ${tokenService.retrieve()}`
-      //     }
-      //   })
-      // .then(function(res) {
-      //   $log.info('INFOOO: ', res.data)
-      // },
-      // function(err){
-      //   $log.info('dkslafjdkf ', err);
-      // })
       });
     }
 

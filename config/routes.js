@@ -11,7 +11,7 @@ var movieListController = require('../controllers/movie');
 router.get('/users', usersController.index);
 router.post('/users', usersController.create);
 router.get( '/users/me', tokenController.authenticate, usersController.me);
-router.put('/users/follow', tokenController.authenticate, usersController.follow);
+router.put('/users/me/follow', tokenController.authenticate, usersController.follow);
 router.get('/users/:id', usersController.show);
 
 router.post('/token', tokenController.create);

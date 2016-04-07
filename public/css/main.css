@@ -136,7 +136,15 @@ a:hover {
   border: 2px solid;
   margin-left: 200px;
   text-align: center;
-  margin-right: 100px;
+  margin-right: 0px;
+  height: 700px;
+  overflow: scroll;
+}
+
+.blank-space {
+  border: 2px solid;
+  height: 700px;
+  width: 220px;
 }
 
 .genres {
@@ -226,6 +234,12 @@ a.genres {
    text-decoration: none;
    opacity: 0;
    /*text-align: center;*/
+}
+
+.movies {
+  overflow: scroll;
+  height: 700px;
+  padding-right: 35px;
 }
 
 .movie-poster:hover .movie {
@@ -388,5 +402,22 @@ a.genres {
 }
 
 
+ul.pagination {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
 
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagein {
+  text-align: center;
+}
 

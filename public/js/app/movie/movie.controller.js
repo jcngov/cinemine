@@ -118,7 +118,7 @@
     // function getMostPopularMovies(data){
       $http({
         method: 'GET',
-        url: `/api/movies/search?type=popular&sory_by=popularity.desc`,
+        url: `/api/movies/search?type=popular&sort_by=popularity.desc`,
         headers: {
           'Content-Type': 'application/json'
         }

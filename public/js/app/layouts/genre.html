@@ -10,11 +10,27 @@
 </ul>
 
 <main ng-if="'genre' | isState">
+  <div class="pagein">
+  </div>
   <div class="genre-container">
     <h1 class="rotate genre">GENRE.</h1>
     <div class="genre-list-container">
       <ul ng-repeat="genre in vm.genres">
         <li class="genres"><a class="genres" ng-click="vm.showGenre(genre, 1);">{{genre}}</a></li>
+        <ul class="pagination">
+          <li><a>«</a></li>
+          <li><a class="active" ng-click="vm.showGenre(genre, 1)">1</a></li>
+          <li><a ng-click="vm.showGenre(genre, 2)">2</a></li>
+          <li><a ng-click="vm.showGenre(genre, 3)">3</a></li>
+          <li><a ng-click="vm.showGenre(genre, 4)">4</a></li>
+          <li><a ng-click="vm.showGenre(genre, 5)">5</a></li>
+          <li><a ng-click="vm.showGenre(genre, 6)">6</a></li>
+          <li><a ng-click="vm.showGenre(genre, 7)">7</a></li>
+          <li><a ng-click="vm.showGenre(genre, 8)">8</a></li>
+          <li><a ng-click="vm.showGenre(genre, 9)">9</a></li>
+          <li><a ng-click="vm.showGenre(genre, 10)">10</a></li>
+          <li><a>»</a></li>
+        </ul>
       </ul>
     </div>
     <div class="movies">
@@ -28,6 +44,7 @@
         </ul>
       </h1>
     </div>
+    <div class="blank-space"></div>
   </div>
 
 </main>

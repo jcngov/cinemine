@@ -92,7 +92,7 @@ function follow(req, res, next) {
          console.log('SAVED', response);
          console.log('RESPONSE: ', response.following);
          console.log('ERROR', err)
-         res.json(response);
+         res.send(response);
        })
      }, function(err) {
        console.log('NOT FOLLOWING', err)

@@ -10,20 +10,23 @@
 </ul>
 
 <div class="list-container" ng-controller="MovieController as vm">
-  <h1 class="list-text">Favorites</h1>
-  <div class="favorite-list">
-    <ul ng-repeat="movie in vm.currentUser.favoriteMovies">
-      <!-- <li>{{movie.title}}</li> -->
-      <img class="movie-in-list" src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}">
-    </ul>
+  <div>
+    <h1 class="list-text">Favorites</h1>
+    <div class="favorite-list">
+      <ul ng-repeat="movie in vm.currentUser.favoriteMovies">
+        <!-- <li>{{movie.title}}</li> -->
+        <img class="movie-in-list" src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}">
+      </ul>
+    </div>
   </div>
-
-  <h1 class="list-text">Watched</h1>
-  <div class="watched-list">
-    <ul ng-repeat="movie in vm.currentUser.watchedMovies">
-      <!-- <li>{{movie.title}}</li> -->
-      <img class="movie-in-list" src="http://image.tmdb.org/t/p/w154{{movie.poster_path}}">
-    </ul>
+  <div>
+    <h1 class="list-text">Watched</h1>
+    <div class="watched-list">
+      <ul ng-repeat="movie in vm.currentUser.watchedMovies">
+        <!-- <li>{{movie.title}}</li> -->
+        <img class="movie-in-list" src="http://image.tmdb.org/t/p/w154{{movie.poster_path}}">
+      </ul>
+    </div>
   </div>
 
 </div>

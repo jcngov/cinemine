@@ -443,5 +443,22 @@ ul.pagination li a {
   width: 0px !important;
 }
 
+/*home page*/
+
+.home-pic {
+  background-image: url("../../../assets/moviesjpg.jpg");
+  width: 1345px;
+  height: 650px;
+  opacity: 0.7;
+}
+
+.cinemine-home {
+  text-align: center;
+  position: relative;
+  top: 287px;
+  font-size: 100px;
+  color: azure;
+  margin-top: 0px;
+}
 
 

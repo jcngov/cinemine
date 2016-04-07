@@ -1,11 +1,14 @@
-<h1>CineMine</h1>
+<!-- <h1>CineMine</h1> -->
 <ul class="navbar" ng-controller="NavController as vm">
+  <li class="navs">Welcome, &nbsp {{vm.currentUser.firstName}}!</li>
   <li class="navs"><a id="navs" ui-sref="home">Home</a></li>
   <li class="navs"><a id="navs" ui-sref="mymovies">My Movies</a></li>
   <li class="navs"><a id="navs" ui-sref="moviebank">Movie Bank</a></li>
   <li class="navs"><a id="navs" ui-sref="browse">Browse</a></li>
   <li class="navs"><a id="navs" ui-sref="moviebuffs">Movie Buffs</a></li>
   <li ng-click="vm.logOut()" class="navs"><a id="navs">Log Out</a></li>
-  <li class="navs">Welcome {{vm.currentUser.firstName}}</li>
 </ul>
 
+<div class="home-pic">
+  <h1 class="cinemine-home">CineMine</h1>
+</div>

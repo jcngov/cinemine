@@ -313,6 +313,15 @@ a.genres {
 .movie-in-list {
   padding-left: 10px;
 }
+
+.favorite-list, .watched-list {
+  width: 700px;
+}
+
+.list-container {
+  display: flex;
+  justify-content: flex-end;
+}
 /*
 .list-text {
   font-size: 200px;
@@ -322,6 +331,33 @@ a.genres {
 }
 */
 /*moviebuffs*/
+
+.movie-buff-index {
+  display: flex;
+  justify-content: center;
+}
+
+.user-name {
+  text-align: center;
+}
+
+.name-and-circle {
+  margin-right: 10px;
+}
+
+.movie-buffs {
+  font-size: 150px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.circle {
+  border: 2px solid;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%
+}
 
 .username {
   font-size: 100px;

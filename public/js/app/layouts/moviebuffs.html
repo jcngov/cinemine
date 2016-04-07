@@ -10,11 +10,13 @@
 </ul>
 
 <div ng-hide="vm.userInfo">
-  <h1>Movie Buffs</h1>
-
-  <ul ng-repeat="user in vm.users">
-    <li ng-click="vm.setUser(user)">{{user.firstName}}</li>
-  </ul>
+  <h1 class="movie-buffs">Movie Buffs</h1>
+  <div class="movie-buff-index">
+    <div class="name-and-circle" ng-repeat="user in vm.users">
+      <p ng-click="vm.setUser(user)" class="user-name">{{user.firstName}}</p>
+      <div class="circle"></div>
+    </div>
+  </div>
 </div>
 
 <div ng-show="vm.userInfo">
@@ -26,6 +28,7 @@
   </div>
 
   <div class="list-container">
+    <div>
     <h1 class="list-text">FAVORITES</h1>
     <div class="favorite-list">
       <ul ng-repeat="movie in vm.userInfo.favoriteMovies">
@@ -33,13 +36,15 @@
         <img class="movie-in-list" src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}">
       </ul>
     </div>
-
+    </div>
+    <div>
     <h1 class="list-text">WATCHED</h1>
     <div class="watched-list">
       <ul ng-repeat="movie in vm.userInfo.watchedMovies">
         <!-- <li>{{movie.title}}</li> -->
-        <img class="movie-in-list" src="http://image.tmdb.org/t/p/w154{{movie.poster_path}}">
+        <img class="movie-in-list" src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}">
       </ul>
+    </div>
     </div>
 
   </div>

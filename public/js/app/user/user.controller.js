@@ -50,6 +50,7 @@
       $http({
         method: 'PUT',
         url: 'api/users/follow',
+        data: data,
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${tokenService.retrieve()}`
@@ -59,10 +60,26 @@
         if (res.data) {
           vm.following = res.data.following
         }
-        $log.info('FOLLOWING: ', vm.following);
+        $log.info('FOLLOWING: ', vm.following)
       },
       function(err) {
         $log.info('WHATS HAPPENING ', err);
+      // })
+      // .then(function(){
+      //   $http({
+      //     method: 'GET',
+      //     url: 'api/users/' + vm.following._id,
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //       'Authorization': `Bearer ${tokenService.retrieve()}`
+      //     }
+      //   })
+      // .then(function(res) {
+      //   $log.info('INFOOO: ', res.data)
+      // },
+      // function(err){
+      //   $log.info('dkslafjdkf ', err);
+      // })
       });
     }
 

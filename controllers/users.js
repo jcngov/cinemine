@@ -26,7 +26,7 @@ function show(req, res, next) {
   User.findById(req.params.id, function(err, user) {
     if (err) {
       res.json({
-        message: "HUUUHHHHHHHHH Could not find user because " + err
+        message: "HUUUHHHHHHHHH Could not find user because "  + err
       });
     } else if (!user) {
       res.json({
@@ -84,17 +84,17 @@ function me(req, res, next) {
 };
 
 function follow(req, res, next) {
-  User.findById(req.decoded._id).populate('following', 'firstName').exec()
-    .then(function(user){
-    console.log(req.body);
-      user.following.push(req.body)
-      user.save(function(err, response) {
-        console.log('SAVED', response);
-        console.log('RESPONSE: ', response.following);
-        console.log('ERROR', err)
-        res.json(response);
-      })
-    }, function(err) {
-      console.log('NOT FOLLOWING', err)
-    })
+   User.findById(req.decoded._id).populate('following', 'firstName').exec()
+     .then(function(user){
+     console.log(req.body);
+       user.following.push(req.body)
+       user.save(function(err, response) {
+         console.log('SAVED', response);
+         console.log('RESPONSE: ', response.following);
+         console.log('ERROR', err)
+         res.json(response);
+       })
+     }, function(err) {
+       console.log('NOT FOLLOWING', err)
+     })
 }

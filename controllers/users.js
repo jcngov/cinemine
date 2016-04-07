@@ -5,7 +5,8 @@ module.exports = {
   index:  index,
   show:   show,
   create: create,
-  me: me
+  me: me,
+  follow: follow
 }
 
 function index(req, res, next) {
@@ -81,3 +82,19 @@ function me(req, res, next) {
       next(err);
     });
 };
+
+function follow(req, res, next) {
+  User.findById(req.decoded._id).populate('following', 'firstName').exec()
+    .then(function(user){
+    console.log(req.body);
+      user.following.push(req.body)
+      user.save(function(err, response) {
+        console.log('SAVED', response);
+        console.log('RESPONSE: ', response.following);
+        console.log('ERROR', err)
+        res.json(response);
+      })
+    }, function(err) {
+      console.log('NOT FOLLOWING', err)
+    })
+}

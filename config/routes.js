@@ -11,6 +11,7 @@ var movieListController = require('../controllers/movie');
 router.get('/users', usersController.index);
 router.post('/users', usersController.create);
 router.get( '/users/me', tokenController.authenticate, usersController.me);
+router.put('/users/follow', tokenController.authenticate, usersController.follow);
 router.get('/users/:id', usersController.show);
 
 router.post('/token', tokenController.create);
@@ -21,6 +22,9 @@ router.get('/movies/search', movieController.search);
 router.get('/images/:id', movieController.getMovieImages);
 // router.get('/moviebytitle', movieController.searchTitle);
 
+// MOVIES CONTROLLER:
 router.put('/users/movielist', tokenController.authenticate, movieListController.addMovie);
 router.put('/users/favorites', tokenController.authenticate, movieListController.addFavorites);
 router.put('/users/unwatched', tokenController.authenticate, movieListController.addUnwatched);
+
+// USERS CONTROLLER:

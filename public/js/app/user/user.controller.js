@@ -27,8 +27,6 @@
         }
       })
       .then(function(res){
-        $log.info("USER STUFF: ", res.data.data)
-
         if (res.data) {
           vm.users = res.data.data;
         }
@@ -52,15 +50,16 @@
       $http({
         method: 'PUT',
         url: 'api/users/follow',
-        data: data,
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${tokenService.retrieve()}`
         }
       })
       .then(function(res) {
-
-        $log.info('FOLLOWING: ', res.data.following)
+        if (res.data) {
+          vm.following = res.data.following
+        }
+        $log.info('FOLLOWING: ', vm.following);
       },
       function(err) {
         $log.info('WHATS HAPPENING ', err);

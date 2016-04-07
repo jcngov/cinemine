@@ -83,6 +83,11 @@
         templateUrl: 'js/app/layouts/moviebuffs.html',
         controller: 'UserController',
         controllerAs: 'vm'
+      })
+    $stateProvider
+      .state('moviebuffs.following', {
+        url: '/following',
+        templateUrl: 'js/app/layouts/following.html'
       });
 
     $urlRouterProvider.otherwise('/');

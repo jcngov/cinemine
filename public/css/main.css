@@ -251,6 +251,7 @@ a.genres {
   justify-content: center;
   position: relative;
   left: 72px;
+  width: 1320px;
 }
 
 .mostPopular {
@@ -315,13 +316,13 @@ a.genres {
 }
 
 .favorite-list, .watched-list {
-  width: 700px;
+  width: 600px;
 }
 
 .list-container {
   display: flex;
   /*justify-content: flex-end;*/
-  width: 1400px;
+  width: 1211px;
   margin: 0 auto;
 }
 /*

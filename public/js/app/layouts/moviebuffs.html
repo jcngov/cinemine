@@ -9,6 +9,7 @@
   <li class="navs">Welcome</li>
 </ul>
 
+<main ng-if="'moviebuffs' | isState">
 <div ng-hide="vm.userInfo">
   <h1 class="movie-buffs">Movie Buffs</h1>
   <div class="movie-buff-index">
@@ -22,12 +23,11 @@
 <div ng-show="vm.userInfo">
   <div class="user-title-info">
     <h1 class="username">{{vm.userInfo.firstName}}'s</h1>
-    <span class="following">Following</span>
+    <span class="following" ui-sref="moviebuffs.following">Following {{vm.userInfo.following.length}}</span>
     <span class="followers">Followers</span>
     <span class="buffs" ng-click="vm.clearUser()">See More Buffs</span>
     <button ng-click="vm.followUser(vm.userInfo)" class="follow">FOLLOW</button>
   </div>
-
   <div class="list-container">
     <div>
     <h1 class="list-text">FAVORITES</h1>
@@ -47,7 +47,8 @@
       </ul>
     </div>
     </div>
-
   </div>
-
 </div>
+</main>
+
+<main ui-view> </main>

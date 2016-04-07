@@ -9,13 +9,15 @@
   <li class="navs">Welcome</li>
 </ul>
 
+<main ng-if="'mymovies' | isState">
+
 <div class="list-container" ng-controller="MovieController as vm">
   <div>
     <h1 class="list-text">Favorites</h1>
     <div class="favorite-list">
       <ul ng-repeat="movie in vm.currentUser.favoriteMovies">
         <!-- <li>{{movie.title}}</li> -->
-        <img class="movie-in-list" src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}">
+        <a ui-sref="mymovies.movie" ng-click="vm.showMovie(movie); vm.getMovieImages(movie.id)"><img class="movie-in-list" src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}"></a>
       </ul>
     </div>
   </div>
@@ -30,4 +32,8 @@
   </div>
 
 </div>
+</main>
+
+<main ui-view> </main>
+
 

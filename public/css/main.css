@@ -10,7 +10,10 @@ body {
   padding: 50px;
 }
 
-a { color: #00B7FF; }
+a {
+  color: #00B7FF;
+  cursor: pointer !important;
+}
 
 /*landing state*/
 .cinemine {
@@ -384,6 +387,10 @@ a.genres {
   margin-top: 20px;
 }
 
+.user-name {
+  cursor: pointer;
+}
+
 .buffs, .following, .followers {
   padding-right: 15px;
 }
@@ -435,4 +442,6 @@ ul.pagination li a {
 .pure-menu-horizontal {
   width: 0px !important;
 }
+
+
 

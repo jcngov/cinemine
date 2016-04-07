@@ -88,6 +88,11 @@
       .state('moviebuffs.following', {
         url: '/following',
         templateUrl: 'js/app/layouts/following.html'
+      })
+    $stateProvider
+      .state('mymovies.movie', {
+        url: '/movie',
+        templateUrl: 'js/app/layouts/show.movie.html'
       });
 
     $urlRouterProvider.otherwise('/');

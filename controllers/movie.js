@@ -14,6 +14,7 @@ function addMovie(req, res, next) {
         console.log(req.body);
       user.watchedMovies.push({
         title: req.body.title,
+        id: req.body.id,
         poster_path: req.body.poster_path
       })
       user.save(function(err, response) {

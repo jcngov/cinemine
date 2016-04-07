@@ -6,7 +6,8 @@ module.exports = {
   show:   show,
   create: create,
   me: me,
-  follow: follow
+  follow: follow,
+  removeMovie: removeMovie
 }
 
 function index(req, res, next) {
@@ -97,4 +98,28 @@ function follow(req, res, next) {
      }, function(err) {
        console.log('NOT FOLLOWING', err)
      })
+}
+
+function removeMovie(req, res, next) {
+  User.findById(req.decoded._id).exec()
+    .then(function(user) {
+      user.watchedMovies.remove(
+        { title: req.body.title,
+          id: req.body.id,
+          poster_path: req.body.poster_path
+        }, function(err) {
+            if (!err) {
+                    message.type = 'notification!';
+            }
+            else {
+                    message.type = 'error';
+            }
+          });
+      console.log("no more: ", user.watchedMovies)
+      user.save(function(err, user) {
+        if (err) { res.send(err) }
+          console.log("woohoo")
+        res.send(user);
+      });
+    })
 }

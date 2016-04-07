@@ -27,6 +27,7 @@
       <ul ng-repeat="movie in vm.currentUser.watchedMovies">
         <!-- <li>{{movie.title}}</li> -->
         <img class="movie-in-list" src="http://image.tmdb.org/t/p/w154{{movie.poster_path}}">
+        <button class="delete" ng-click="vm.removeMovie(movie)">DELETE</button>
       </ul>
     </div>
   </div>

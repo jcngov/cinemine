@@ -47,7 +47,30 @@
     vm.getCurrentUser = getCurrentUser;
     vm.currentUser;
     // vm.getMostPopularMovies = getMostPopularMovies;
+    vm.removeMovie = removeMovie;
     getCurrentUser();
+
+    function removeMovie(movie){
+      $log.info("JERI REMOVING MOVIE ", movie);
+      $http({
+        method: 'DELETE',
+        url: 'api/users/watchedmovies',
+        data: movie,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokenService.retrieve()}`
+        }
+      })
+      .then(function(res){
+        $log.info(movie);
+        $log.info("Delete?:", res.data.watchedMovies);
+        var index = res.data.watchedMovies.indexOf(movie);
+        res.data.watchedMovies.splice(index, 1);
+      },
+      function(err) {
+        $log.info("ERROR:", err);
+      });
+    }
 
     function getCurrentUser(){
       $http({
@@ -137,7 +160,7 @@
     function addMovie(data){
       $http({
         method: 'PUT',
-        url: 'api/users/movielist',
+        url: 'api/users/watchedmovies',
         data: data,
         headers: {
           'Content-Type': 'application/json',

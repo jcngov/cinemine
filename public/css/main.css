@@ -172,6 +172,8 @@ a.genres {
   position: relative;
   bottom: 336px;
   left: 90px;
+  height: 520px;
+  overflow: scroll;
 }
 
 .one-movie-container {
@@ -419,5 +421,18 @@ ul.pagination li a {
 
 .pagein {
   text-align: center;
+}
+
+.more-images {
+  border: 2px solid;
+  display: flex;
+  overflow: scroll;
+  position: relative;
+  right: 32px;
+  width: 1389px;
+}
+
+.pure-menu-horizontal {
+  width: 0px !important;
 }
 

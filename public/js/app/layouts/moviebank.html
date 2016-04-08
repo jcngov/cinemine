@@ -9,13 +9,12 @@
   <li ng-click="vm.logOut()" class="navs"><a id="navs">Log Out</a></li>
 </ul>
 
-  <h1 class="list-text">Movie Bank</h1>
+<h1 class="list-text">Movie Bank</h1>
 <div class="list-container" ng-controller="MovieController as vm">
   <div class="unwatched-list">
     <ul ng-repeat="movie in vm.currentUser.unwatchedMovies">
-      <!-- <li>{{movie.title}}</li> -->
+      <p class="x" ng-click="vm.removeUnwatched(movie, $index)">X</p>
       <img class="movie-in-list" src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}">
-      <button class="delete" ng-click="vm.removeUnwatched(movie)">DELETE</button>
     </ul>
   </div>
 </div>

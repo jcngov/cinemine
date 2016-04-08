@@ -20,14 +20,13 @@ router.post('/users/me/token', tokenController.authenticate, tokenController.ref
 // SEARCH MOVIES CONTROLLER:
 router.get('/movies/search', movieController.search);
 router.get('/images/:id', movieController.getMovieImages);
-// router.get('/moviebytitle', movieController.searchTitle);
 
 // MOVIES CONTROLLER:
 router.put('/users/watchedmovies', tokenController.authenticate, movieListController.addMovie);
 router.put('/users/favorites', tokenController.authenticate, movieListController.addFavorites);
 router.put('/users/unwatched', tokenController.authenticate, movieListController.addUnwatched);
-router.delete( '/users/watchedmovies', tokenController.authenticate, usersController.removeWatched);
-router.delete( '/users/unwatched', tokenController.authenticate, usersController.removeUnwatched);
-router.delete( '/users/favorites', tokenController.authenticate, usersController.removeFavorites);
+router.delete('/users/watchedmovies', tokenController.authenticate, usersController.removeWatched);
+router.delete('/users/unwatched', tokenController.authenticate, usersController.removeUnwatched);
+router.delete('/users/favorites', tokenController.authenticate, usersController.removeFavorites);
 
 // USERS CONTROLLER:

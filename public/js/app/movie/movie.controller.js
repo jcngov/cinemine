@@ -38,15 +38,15 @@
     vm.searchByTitle  = searchByTitle;
     vm.showMovie      = showMovie;
     vm.selectedMovie  = {};
+
     vm.addMovie       = addMovie;
-    // vm.watchedMovies  = authService.currentUser().watchedMovies;
     vm.addFavorites   = addFavorites;
     vm.addUnwatched   = addUnwatched;
-    // vm.favoriteMovies = authService.currentUser().favoriteMovies;
+
     vm.getMovieImages = getMovieImages;
     vm.getCurrentUser = getCurrentUser;
     vm.currentUser;
-    // vm.getMostPopularMovies = getMostPopularMovies;
+
     vm.removeWatched = removeWatched;
     vm.removeUnwatched = removeUnwatched;
     vm.removeFavorites = removeFavorites
@@ -225,7 +225,7 @@
         });
     }
 
-    function removeWatched(movie){
+    function removeWatched(movie, index){
       $log.info("JERI REMOVING MOVIE ", movie);
       $http({
         method: 'DELETE',
@@ -239,15 +239,14 @@
       .then(function(res){
         $log.info(movie);
         $log.info("Delete?:", res.data.watchedMovies);
-        var index = res.data.watchedMovies.indexOf(movie);
-        res.data.watchedMovies.splice(index, 1);
+        vm.currentUser.watchedMovies.splice(index, 1);
       },
       function(err) {
         $log.info("ERROR:", err);
       });
     }
 
-    function removeUnwatched(movie){
+    function removeUnwatched(movie, index){
       $log.info("JERI REMOVING MOVIE ", movie);
       $http({
         method: 'DELETE',
@@ -261,15 +260,14 @@
       .then(function(res){
         $log.info(movie);
         $log.info("Delete?:", res.data.unwatchedMovies);
-        var index = res.data.unwatchedMovies.indexOf(movie);
-        res.data.unwatchedMovies.splice(index, 1);
+        vm.currentUser.unwatchedMovies.splice(index, 1);
       },
       function(err) {
         $log.info("ERROR:", err);
       });
     }
 
-    function removeFavorites(movie){
+    function removeFavorites(movie, index){
       $log.info("JERI REMOVING MOVIE ", movie);
       $http({
         method: 'DELETE',
@@ -283,8 +281,7 @@
       .then(function(res){
         $log.info(movie);
         $log.info("Delete?:", res.data.favoriteMovies);
-        var index = res.data.favoriteMovies.indexOf(movie);
-        res.data.favoriteMovies.splice(index, 1);
+        vm.currentUser.favoriteMovies.splice(index, 1);
       },
       function(err) {
         $log.info("ERROR:", err);

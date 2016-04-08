@@ -26,6 +26,8 @@ router.get('/images/:id', movieController.getMovieImages);
 router.put('/users/watchedmovies', tokenController.authenticate, movieListController.addMovie);
 router.put('/users/favorites', tokenController.authenticate, movieListController.addFavorites);
 router.put('/users/unwatched', tokenController.authenticate, movieListController.addUnwatched);
-router.delete( '/users/watchedmovies', tokenController.authenticate, usersController.removeMovie);
+router.delete( '/users/watchedmovies', tokenController.authenticate, usersController.removeWatched);
+router.delete( '/users/unwatched', tokenController.authenticate, usersController.removeUnwatched);
+router.delete( '/users/favorites', tokenController.authenticate, usersController.removeFavorites);
 
 // USERS CONTROLLER:

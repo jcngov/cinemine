@@ -47,30 +47,11 @@
     vm.getCurrentUser = getCurrentUser;
     vm.currentUser;
     // vm.getMostPopularMovies = getMostPopularMovies;
-    vm.removeMovie = removeMovie;
-    getCurrentUser();
+    vm.removeWatched = removeWatched;
+    vm.removeUnwatched = removeUnwatched;
+    vm.removeFavorites = removeFavorites
 
-    function removeMovie(movie){
-      $log.info("JERI REMOVING MOVIE ", movie);
-      $http({
-        method: 'DELETE',
-        url: 'api/users/watchedmovies',
-        data: movie,
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${tokenService.retrieve()}`
-        }
-      })
-      .then(function(res){
-        $log.info(movie);
-        $log.info("Delete?:", res.data.watchedMovies);
-        var index = res.data.watchedMovies.indexOf(movie);
-        res.data.watchedMovies.splice(index, 1);
-      },
-      function(err) {
-        $log.info("ERROR:", err);
-      });
-    }
+    getCurrentUser();
 
     function getCurrentUser(){
       $http({
@@ -242,6 +223,72 @@
         function(err) {
           $log.info('ERROR', err);
         });
+    }
+
+    function removeWatched(movie){
+      $log.info("JERI REMOVING MOVIE ", movie);
+      $http({
+        method: 'DELETE',
+        url: 'api/users/watchedmovies',
+        data: movie,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokenService.retrieve()}`
+        }
+      })
+      .then(function(res){
+        $log.info(movie);
+        $log.info("Delete?:", res.data.watchedMovies);
+        var index = res.data.watchedMovies.indexOf(movie);
+        res.data.watchedMovies.splice(index, 1);
+      },
+      function(err) {
+        $log.info("ERROR:", err);
+      });
+    }
+
+    function removeUnwatched(movie){
+      $log.info("JERI REMOVING MOVIE ", movie);
+      $http({
+        method: 'DELETE',
+        url: 'api/users/unwatched',
+        data: movie,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokenService.retrieve()}`
+        }
+      })
+      .then(function(res){
+        $log.info(movie);
+        $log.info("Delete?:", res.data.unwatchedMovies);
+        var index = res.data.unwatchedMovies.indexOf(movie);
+        res.data.unwatchedMovies.splice(index, 1);
+      },
+      function(err) {
+        $log.info("ERROR:", err);
+      });
+    }
+
+    function removeFavorites(movie){
+      $log.info("JERI REMOVING MOVIE ", movie);
+      $http({
+        method: 'DELETE',
+        url: 'api/users/favorites',
+        data: movie,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokenService.retrieve()}`
+        }
+      })
+      .then(function(res){
+        $log.info(movie);
+        $log.info("Delete?:", res.data.favoriteMovies);
+        var index = res.data.favoriteMovies.indexOf(movie);
+        res.data.favoriteMovies.splice(index, 1);
+      },
+      function(err) {
+        $log.info("ERROR:", err);
+      });
     }
 
   }

@@ -7,7 +7,9 @@ module.exports = {
   create: create,
   me: me,
   follow: follow,
-  removeMovie: removeMovie
+  removeWatched: removeWatched,
+  removeUnwatched: removeUnwatched,
+  removeFavorites: removeFavorites
 }
 
 function index(req, res, next) {
@@ -100,7 +102,7 @@ function follow(req, res, next) {
      })
 }
 
-function removeMovie(req, res, next) {
+function removeWatched(req, res, next) {
   User.findById(req.decoded._id).exec()
     .then(function(user) {
       user.watchedMovies.remove(
@@ -109,13 +111,59 @@ function removeMovie(req, res, next) {
           poster_path: req.body.poster_path
         }, function(err) {
             if (!err) {
-                    message.type = 'notification!';
+              console.log('removed watched movie');
             }
             else {
-                    message.type = 'error';
+              console.log('error');
             }
           });
       console.log("no more: ", user.watchedMovies)
+      user.save(function(err, user) {
+        if (err) { res.send(err) }
+          console.log("woohoo")
+        res.send(user);
+      });
+    })
+}
+
+function removeUnwatched(req, res, next) {
+  User.findById(req.decoded._id).exec()
+    .then(function(user) {
+      user.unwatchedMovies.remove(
+        { title: req.body.title,
+          poster_path: req.body.poster_path
+        }, function(err) {
+            if (!err) {
+              console.log('removed watched movie');
+            }
+            else {
+              console.log('error');
+            }
+          });
+      console.log("no more: ", user.unwatchedMovies)
+      user.save(function(err, user) {
+        if (err) { res.send(err) }
+          console.log("woohoo")
+        res.send(user);
+      });
+    })
+}
+
+function removeFavorites(req, res, next) {
+  User.findById(req.decoded._id).exec()
+    .then(function(user) {
+      user.favoriteMovies.remove(
+        { title: req.body.title,
+          poster_path: req.body.poster_path
+        }, function(err) {
+            if (!err) {
+              console.log('removed watched movie');
+            }
+            else {
+              console.log('error');
+            }
+          });
+      console.log("no more: ", user.favoriteMovies)
       user.save(function(err, user) {
         if (err) { res.send(err) }
           console.log("woohoo")

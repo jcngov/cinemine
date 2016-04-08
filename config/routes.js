@@ -29,4 +29,3 @@ router.delete('/users/watchedmovies', tokenController.authenticate, usersControl
 router.delete('/users/unwatched', tokenController.authenticate, usersController.removeUnwatched);
 router.delete('/users/favorites', tokenController.authenticate, usersController.removeFavorites);
 
-// USERS CONTROLLER:

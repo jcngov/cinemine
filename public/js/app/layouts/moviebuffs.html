@@ -26,14 +26,13 @@
     <span class="following" ui-sref="moviebuffs.following">Following {{vm.userInfo.following.length}}</span>
     <span class="followers">Followers</span>
     <span class="buffs" ng-click="vm.clearUser()">See More Buffs</span>
-    <button ng-click="vm.followUser(vm.userInfo)" class="follow">FOLLOW</button>
+    <button ng-click="vm.followUser(vm.userInfo); vm.clearUser()" class="follow">FOLLOW</button>
   </div>
   <div class="list-container">
     <div>
     <h1 class="list-text">FAVORITES</h1>
     <div class="favorite-list">
       <ul ng-repeat="movie in vm.userInfo.favoriteMovies">
-        <!-- <li>{{movie.title}}</li> -->
         <img class="movie-in-list" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}">
       </ul>
     </div>
@@ -42,7 +41,6 @@
     <h1 class="list-text">WATCHED</h1>
     <div class="watched-list">
       <ul ng-repeat="movie in vm.userInfo.watchedMovies">
-        <!-- <li>{{movie.title}}</li> -->
         <img class="movie-in-list" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}">
       </ul>
     </div>

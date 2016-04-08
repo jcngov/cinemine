@@ -15,6 +15,14 @@ a {
   cursor: pointer !important;
 }
 
+h1 {
+  /*font-family: 'Biryani', sans-serif;*/
+}
+
+h1.ng-scope {
+  text-align: center;
+}
+
 /*landing state*/
 .cinemine {
   font-size: 275px;
@@ -94,7 +102,7 @@ a:hover {
   border-bottom: 2px solid;
 }
 
-.navs{
+.navs {
   display:table-cell;
 }
 
@@ -102,6 +110,7 @@ a:hover {
   color: black !important;
   text-decoration: none;
 }
+
 
 /*browse*/
 
@@ -336,12 +345,14 @@ a.genres {
 
 .favorite-list, .watched-list {
   width: 600px;
+  /*border-right: 1px solid;*/
+  /*border-left: 1px solid;*/
 }
 
 .list-container {
   display: flex;
   /*justify-content: flex-end;*/
-  width: 1211px;
+  width: 1226px;
   margin: 0 auto;
 }
 /*
@@ -356,11 +367,13 @@ a.genres {
 
 .movie-buff-index {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 .user-name {
   text-align: center;
+  margin-bottom: 0px;
 }
 
 .name-and-circle {
@@ -476,6 +489,15 @@ ul.pagination li a {
   cursor: pointer;
   font-size: smaller;
   background: black;
+}
+
+.line {
+  position: relative;
+  top: 95px;
+  left: auto;
+  margin-left: 10px;
+  margin-right: 20px;
+  border: 1px solid;
 }
 
 

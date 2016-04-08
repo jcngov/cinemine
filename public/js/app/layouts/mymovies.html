@@ -17,7 +17,7 @@
     <div class="favorite-list">
       <ul ng-repeat="movie in vm.currentUser.favoriteMovies">
         <p class="x" ng-click="vm.removeFavorites(movie, $index)">X</p>
-        <a ui-sref="mymovies.movie" ng-click="vm.showMovie(movie); vm.getMovieImages(movie.id)"><img class="movie-in-list" src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}"></a>
+        <a ui-sref="mymovies.movie" ng-click="vm.showMovie(movie); vm.getMovieImages(movie.id)"><img class="movie-in-list" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}"></a>
       </ul>
     </div>
   </div>

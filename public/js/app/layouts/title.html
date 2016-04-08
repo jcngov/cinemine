@@ -23,7 +23,7 @@
     <div class="movie-results">
       <div ng-repeat="movie in vm.movieInfoByTitle">
         <p class="movie-info">
-          <a ui-sref="title.movie({movieTitle: movie.title})" ng-click="vm.showMovie(movie); vm.getMovieImages(movie.id)"><img class="movie-poster" src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}"></a>
+          <a ui-sref="title.movie({movieTitle: movie.title})" ng-click="vm.showMovie(movie); vm.getMovieImages(movie.id)"><img class="movie-poster" src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}"></a>
         </p>
       </div>
     </div>

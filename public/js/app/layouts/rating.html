@@ -16,7 +16,7 @@
     <div class="popular-movies">
       <div ng-repeat="movie in vm.movieInfoByPopularity">
         <p class="movie-info">
-          <a ui-sref="rating.movie({movieTitle: movie.title})" ng-click="vm.showMovie(movie); vm.getMovieImages(movie.id)"><img class="movie-poster" src="http://image.tmdb.org/t/p/w154{{movie.poster_path}}" ng-class="{mostPopular:$first}"></a>
+          <a ui-sref="rating.movie({movieTitle: movie.title})" ng-click="vm.showMovie(movie); vm.getMovieImages(movie.id)"><img class="movie-poster" src="https://image.tmdb.org/t/p/w154{{movie.poster_path}}" ng-class="{mostPopular:$first}"></a>
         </p>
       </div>
     </div>

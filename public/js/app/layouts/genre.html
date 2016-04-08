@@ -37,7 +37,7 @@
       <h1>
         <ul ng-repeat="movie in vm.movieInfo">
           <li class="one-movie-container">
-            <img class="movie-poster" src="http://image.tmdb.org/t/p/w342{{movie.poster_path}}" title="{{movie.title}}">
+            <img class="movie-poster" src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}" title="{{movie.title}}">
             <br>
             <a class="movie" ui-sref="genre.movie({movieTitle: movie.title})" ng-click="vm.showMovie(movie); vm.getMovieImages(movie.id)" data-movie-id="{{movie.id}}"><p class="movie-link">{{movie.title}}</p></a>
           </li>

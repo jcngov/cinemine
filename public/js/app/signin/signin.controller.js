@@ -9,22 +9,20 @@
 
   function SignInController($log, $http, $window, authService, userService, $state, tokenService) {
 
-    $log.info('SignInController loaded');
-
     var vm = this;
     vm.signUp = signUp;
     vm.submitLogIn = submitLogIn;
     vm.user = {
-      firstName: "jerry",
-      lastName: "ngov",
-      email: "jcn@email.com",
-      password: "abc",
-      passwordConfirmation: "abc"
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      passwordConfirmation: ""
     };
 
     vm.logIn = {
-      email: "jcn@email.com",
-      password: "abc"
+      email: "",
+      password: ""
     }
 
     vm.conflict = false;
@@ -37,7 +35,6 @@
       userService.createUser(vm.user)
       .then(
       function(res) {
-        $log.info("Success ", res)
         return authService.logIn(vm.user)
       })
       .then(

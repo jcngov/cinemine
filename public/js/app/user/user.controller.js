@@ -30,9 +30,7 @@
         }
       })
       .then(function(res){
-        $log.info("USER:", res);
         vm.user = res.data;
-        $log.info("CURRENTINFO", vm.user);
       },
       function(err) {
         $log.info("ERR:", err);
@@ -59,7 +57,6 @@
 
     function setUser(user){
       vm.userInfo = user;
-      $log.info(vm.userInfo);
     }
 
     function clearUser(){
@@ -77,12 +74,10 @@
         }
       })
       .then(function(res) {
-        $log.info(res);
         if (res.data) {
           vm.following = res.data.following
         }
         getUser(vm.following);
-        $log.info('FOLLOWING: ', vm.following)
       },
       function(err) {
         $log.info('WHATS HAPPENING ', err);

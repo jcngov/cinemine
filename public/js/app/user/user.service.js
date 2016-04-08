@@ -8,7 +8,6 @@
   userService.$inject = ['$log', '$http', 'authService', '$state'];
 
   function userService($log, $http, authService, $state) {
-    $log.info('userService loaded')
 
     var service = {
       createUser: createUser

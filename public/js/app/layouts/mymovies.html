@@ -25,9 +25,9 @@
   <div>
     <h1 class="list-text">Watched</h1>
     <div class="watched-list">
-      <ul ng-repeat="movie in vm.currentUser.watchedMovies">
+      <ul class="watched-movies" ng-repeat="movie in vm.currentUser.watchedMovies">
         <p class="x" ng-click="vm.removeWatched(movie, $index)">X</p>
-        <img class="movie-in-list" src="https://image.tmdb.org/t/p/w185{{movie.poster_path}}">
+        <img class="movie-in-list" src="https://image.tmdb.org/t/p/w154{{movie.poster_path}}">
       </ul>
     </div>
   </div>

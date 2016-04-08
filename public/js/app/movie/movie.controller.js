@@ -8,7 +8,6 @@
   MovieController.$inject = ['$log', '$http', 'authService', 'tokenService'];
 
   function MovieController($log, $http, authService, tokenService){
-    $log.info('MovieController loaded')
     var vm = this;
 
     vm.genres = [
@@ -63,9 +62,7 @@
         }
       })
       .then(function(res){
-        $log.info("USER:", res);
         vm.currentUser = res.data;
-        $log.info("CURRENTINFO", vm.currentUser);
       },
       function(err) {
         $log.info("ERR:", err);
@@ -75,7 +72,6 @@
 
     function showMovie(movie) {
       vm.selectedMovie = movie;
-      $log.info(vm.selectedMovie)
     }
 
     function showGenre(name, page) {
@@ -110,8 +106,6 @@
       .then(function(res){
         if (res.data.results) {
           vm.movieInfoByTitle = res.data.results;
-          $log.info('SEARCHIN');
-          $log.info(vm.movieInfoByTitle);
         }
       },
       function(err) {
@@ -152,8 +146,6 @@
         function(res) {
           if (res.data.watchedMovies) {
           getCurrentUser();
-          $log.info(vm.currentUser);
-          $log.info("added to watched movies", vm.currentUser.watchedMovies);
           }
         },
         function(err) {
@@ -175,7 +167,6 @@
         function(res) {
           if (res.data.favoriteMovies) {
           getCurrentUser();
-          $log.info("added to Favorites", vm.currentUser.favoriteMovies);
           }
         },
         function(err) {
@@ -197,7 +188,6 @@
         function(res) {
           if (res.data.unwatchedMovies) {
           getCurrentUser();
-          $log.info("added to movie bank", vm.currentUser.unwatchedMovies);
           }
         },
         function(err) {
@@ -215,7 +205,6 @@
       })
       .then(
         function(res) {
-          $log.info('COOOOOOOOL', res.data.results)
           if (res.data.results) {
             vm.movieImages = res.data.results;
           }
@@ -226,7 +215,6 @@
     }
 
     function removeWatched(movie, index){
-      $log.info("JERI REMOVING MOVIE ", movie);
       $http({
         method: 'DELETE',
         url: 'api/users/watchedmovies',
@@ -237,8 +225,6 @@
         }
       })
       .then(function(res){
-        $log.info(movie);
-        $log.info("Delete?:", res.data.watchedMovies);
         vm.currentUser.watchedMovies.splice(index, 1);
       },
       function(err) {
@@ -247,7 +233,6 @@
     }
 
     function removeUnwatched(movie, index){
-      $log.info("JERI REMOVING MOVIE ", movie);
       $http({
         method: 'DELETE',
         url: 'api/users/unwatched',
@@ -258,8 +243,6 @@
         }
       })
       .then(function(res){
-        $log.info(movie);
-        $log.info("Delete?:", res.data.unwatchedMovies);
         vm.currentUser.unwatchedMovies.splice(index, 1);
       },
       function(err) {
@@ -268,7 +251,6 @@
     }
 
     function removeFavorites(movie, index){
-      $log.info("JERI REMOVING MOVIE ", movie);
       $http({
         method: 'DELETE',
         url: 'api/users/favorites',
@@ -279,8 +261,6 @@
         }
       })
       .then(function(res){
-        $log.info(movie);
-        $log.info("Delete?:", res.data.favoriteMovies);
         vm.currentUser.favoriteMovies.splice(index, 1);
       },
       function(err) {

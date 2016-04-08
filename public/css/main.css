@@ -15,12 +15,14 @@ a {
   cursor: pointer !important;
 }
 
-h1 {
-  /*font-family: 'Biryani', sans-serif;*/
+label {
+  margin-top: 15px;
 }
 
-h1.ng-scope {
-  text-align: center;
+.submit {
+  margin-top: 15px;
+  margin-bottom: 0px;
+  float: right;
 }
 
 /*landing state*/
@@ -345,24 +347,18 @@ a.genres {
 
 .favorite-list, .watched-list {
   width: 600px;
-  /*border-right: 1px solid;*/
-  /*border-left: 1px solid;*/
 }
 
 .list-container {
   display: flex;
-  /*justify-content: flex-end;*/
   width: 1226px;
   margin: 0 auto;
 }
-/*
-.list-text {
-  font-size: 200px;
+
+.watched-movies {
   margin-bottom: 0px;
-  margin-top: 20px;
-  text-align: center;
 }
-*/
+
 /*moviebuffs*/
 
 .movie-buff-index {
@@ -490,14 +486,4 @@ ul.pagination li a {
   font-size: smaller;
   background: black;
 }
-
-.line {
-  position: relative;
-  top: 95px;
-  left: auto;
-  margin-left: 10px;
-  margin-right: 20px;
-  border: 1px solid;
-}
-
 

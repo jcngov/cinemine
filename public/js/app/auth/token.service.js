@@ -9,7 +9,6 @@
   tokenService.$inject = ['$log', '$window'];
 
   function tokenService($log, $window) {
-    $log.info('tokenService loaded!');
 
     const TOKEN_KEY = 'token';
     var service = {

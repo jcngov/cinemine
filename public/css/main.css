@@ -116,15 +116,27 @@ a:hover {
   display: flex;
   justify-content: space-around;
   border-bottom: 2px solid;
+  /*background-color: white;*/
 }
 
 .navs {
   display:table-cell;
+  padding-top: 10px;
+  border: 1px solid;
+  padding: 10px 20px 10px 20px;
+}
+
+.navs:hover {
+  background-color: black;
 }
 
 #navs {
   color: black !important;
   text-decoration: none;
+}
+
+#navs:hover {
+  color: white !important;
 }
 
 

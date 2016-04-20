@@ -13,9 +13,11 @@
 
     vm.getUsers = getUsers;
     vm.userInfo;
+    vm.followingList;
     vm.setUser = setUser;
     vm.clearUser = clearUser;
     vm.followUser = followUser;
+    vm.getfollowingUser = getfollowingUser;
 
     getUsers();
 
@@ -24,6 +26,23 @@
       $http({
         method: 'GET',
         url: '/api/users/' + user._id,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${tokenService.retrieve()}`
+        }
+      })
+      .then(function(res){
+        vm.user = res.data;
+      },
+      function(err) {
+        $log.info("ERR:", err);
+      });
+    }
+
+    function getfollowingUser(user) {
+      $http({
+        method: 'GET',
+        url: '/api/users/' + user,
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${tokenService.retrieve()}`
@@ -76,8 +95,8 @@
       .then(function(res) {
         if (res.data) {
           vm.following = res.data.following
+          $log.info("Followers:", vm.following);
         }
-        getUser(vm.following);
       },
       function(err) {
         $log.info('WHATS HAPPENING ', err);

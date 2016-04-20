@@ -26,7 +26,7 @@
     <span class="following" ui-sref="moviebuffs.following">Following {{vm.userInfo.following.length}}</span>
     <span class="followers">Followers</span>
     <span class="buffs" ng-click="vm.clearUser()">See More Buffs</span>
-    <button ng-click="vm.followUser(vm.userInfo); vm.clearUser()" class="follow">FOLLOW</button>
+    <button ng-click="vm.followUser(vm.userInfo); vm.getfollowingUser(vm.following); vm.clearUser()" class="follow">FOLLOW</button>
   </div>
   <div class="list-container">
     <div>

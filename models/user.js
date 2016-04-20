@@ -13,7 +13,7 @@ var userSchema = new mongoose.Schema({
 
 userSchema.methods.followers = function(){
   console.log(this._id);
-  User.find({following: {$in: [this._id]}}, function(err, users) {
+  User.find({following: {$in: [this._id, this.firstName]}}, function(err, users) {
     console.log(users);
     return users;
   });
